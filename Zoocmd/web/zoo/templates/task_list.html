@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Task list{% endblock %}
+
+{% block content %}
+<div id="task-list" class="list-group">
+  <div class="list-group-item task-item hide-soft">
+    <p class="disabled">There are no tasks yet.</p>
+  </div>
+</div>
+
+<!-- {{ handlebarsjs('task-item-template') }} -->
+
+<table id="task_list_table"
+       data-url="/api/2/task_paging/list/"
+       data-side-pagination="server"
+       data-pagination="true"
+       data-page-list="[]"
+       data-search="true"
+       data-page-size="15">
+    <thead>
+    <tr>
+        <th data-field="id">#</th>
+        <th data-field="title" data-align="left" data-sortable="true" data-formatter='titleFormatter'>Name</th>
+        <th data-field="command" data-align="left" data-sortable="true" data-formatter='typeFormatter'>Action</th>
+        <th data-field="created" data-align="left" data-sortable="true" data-formatter="dateFormatter">Datetime</th>
+        <th data-field="status" data-sortable="true" data-formatter="statusFormatter">Status</th>
+
+    </tr>
+    </thead>
+</table>
+
+{% endblock %}
+
+
+{% block page_scripts %}
+  <script src="{{ static('zoo/task-list.js') }}"></script>
+  <script>
+    function statusFormatter(value, row) {
+        if(value=='pending')
+            return '<span class="badge">pending</span>';
+        if(value=='done')
+            return '<span class="badge badge-success">done</span>';
+        if(value=='running')
+            return '<span class="badge badge-warning">running</span>';
+        if(value=='failed')
+            return '<span class="badge badge-important">failed</span>';
+        if(value=='canceled')
+            return '<span class="badge">canceled</span>';
+        if(value=='exception')
+            return '<span class="badge badge-important">exception</span>';
+
+
+    }
+    function typeFormatter(value, row) {
+        if(value=='install')
+            return 'install';
+        if(value=='uninstall')
+            return 'uninstall';
+        return value;
+
+
+    }
+    function dateFormatter(value, row){
+
+        //2015-09-02T18:37:19.257268
+        var date=value.substring(0, 10);
+        var time=value.substring(11, 19);
+        return date+" "+time;
+
+    }
+
+    function titleFormatter(value, row){
+        var cut_value = value.substring(0, 65);
+        if(value.length>65)
+            cut_value+='...';
+        return '<span data-toggle="tooltip" data-original-title="'+value+'">'+cut_value+'</span>';
+
+
+    }
+
+  </script>
+
+{% endblock %}

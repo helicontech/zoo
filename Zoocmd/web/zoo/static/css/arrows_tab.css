@@ -1,0 +1,175 @@
+.wizard a {
+    background: #efefef;
+    display: inline-block;
+    margin-right: 5px;
+    min-width: 150px;
+    outline: none;
+    padding: 10px 40px 10px;
+    position: relative;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.wizard a.active:after{
+    border-left: 21px solid #007ACC;
+}
+
+.wizard .active {
+    background: #007ACC;
+    color: #fff;
+}
+
+.wizard a:before {
+        width: 0;
+        height: 0;
+        border-top: 20px inset transparent;
+        border-bottom: 20px inset transparent;
+        border-left: 20px solid #fff;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+    }
+
+/* installing */
+.wizard a.running
+{
+    background:orange;
+     color:white;
+}
+.wizard a.running:after
+{
+    border-left: 21px solid orange;
+}
+.wizard a.running:hover{
+    color:white;
+}
+/* installing */
+
+/* pending */
+.wizard a.pending
+{
+    background:#999;
+    color:white;
+}
+.wizard a.pending:after{
+    border-left: 21px solid #999;
+}
+.wizard a.pending:hover{
+    color:white;
+}
+
+/* pending */
+
+/* done */
+
+.wizard a.done
+{
+     background:#5cb85c;
+     color:white;
+}
+.wizard a.done:after
+{
+    border-left: 21px solid #5cb85c;
+}
+.wizard a.done:hover{
+    color:white;
+}
+
+
+
+/* done */
+
+/* failed */
+
+.wizard a.failed
+{
+     background:#d9534f;
+     color:white;
+}
+.wizard a.failed:after
+{
+    border-left: 21px solid #d9534f;
+}
+.wizard a.failed:hover{
+    color:white;
+}
+
+
+/* failed */
+
+
+.wizard a.active:hover{
+    color: white;
+}
+
+
+
+.wizard a:hover{
+    color: #2b69ca;
+}
+
+
+.wizard a:after {
+        width: 0;
+        height: 0;
+        border-top: 20px inset transparent;
+        border-bottom: 20px inset transparent;
+        border-left: 21px solid #efefef;
+        position: absolute;
+        content: "";
+        top: 0;
+        right: -20px;
+        z-index: 2;
+    }
+.wizard a.first:first-child:before{
+     border: none;
+}
+/*
+.wizard a:first-child:before,
+.wizard a:last-child:after {
+        border: none;
+    }
+*/
+
+/*
+
+.wizard a:first-child {
+        -webkit-border-radius: 8px 0 0 0px;
+        -moz-border-radius: 8px 0 0 0px;
+        border-radius: 8px 0 0 0px;
+    }
+
+*/
+
+.wizard a.first {
+    display: inline-block;
+    margin-right: 5px;
+    width:10px;
+    min-width:10px;
+    outline: none;
+    padding: 10px 1px 10px;
+    position: relative;
+    text-decoration: none;
+}
+/*
+.wizard a:last-child {
+        -webkit-border-radius: 0 8px 0px 0;
+        -moz-border-radius: 0 8px 0px 0;
+        border-radius: 0 8px 0px 0;
+    }
+*/
+
+.wizard a.first:before {
+    width: 0;
+    height: 0;
+    border-top: 20px inset transparent;
+    border-bottom: 20px inset transparent;
+    border-left: 20px solid #fff;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+}
+

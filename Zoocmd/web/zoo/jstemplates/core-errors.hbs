@@ -1,0 +1,8 @@
+{{#each errors}}
+  <div class="error">
+    <h2 class="text-danger">
+      <span id="error-message">{{message}}</span>
+    </h2>
+    <pre><code id="traceback">{{traceback}}</code></pre>
+  </div>
+{{/each}}

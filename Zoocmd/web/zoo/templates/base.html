@@ -1,0 +1,32 @@
+{% extends 'main_base.html' %}
+{% block header %}
+<div id="header" role="navigation" class="navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        {# <a id="brand" href="/" class="pull-left"><img src="{% static 'img/256x256.png' %}" width="36" height="36" id="logo"></a> #}
+        <div class="pull-left clearfix">
+          <ul id="main-menu" class="nav nav-pills pull-left">
+            <li data-filter="application"><a href="{{ url('gallery') }}?filter=application">Applications</a></li>
+            <li data-filter="product"><a href="{{ url('gallery') }}?filter=product">Products</a></li>
+            <li><a href="{{ url('server') }}">My server</a></li>
+          </ul>
+          <form id="header-search-form" class="pull-left" method="get" action="{{ url('gallery') }}">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" name="q" id="product-search-input" value="{# {{ search_q|default_if_none:'' }} #}">
+            </div>
+          </form>
+        </div>
+        <div class="pull-right">
+          <ul id="service-menu" class="nav nav-pills pull-right">
+            {# <li><a href="{{ url('update') }}"><i class="fa fa-refresh"></i> Update</a></li> #}
+            <li><a href="{{ url('task_list') }}"><i class="fa fa-tasks"></i> Tasks</a></li>
+            <li><a href="{{ url('settings_view') }}"><i class="fa fa-gear"></i> Settings</a></li>
+            <li><a href="#" class="disabled" target="_blank"><i class="fa fa-question"></i> Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

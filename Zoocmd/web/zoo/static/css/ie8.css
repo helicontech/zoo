@@ -1,0 +1,11 @@
+.btn-default {
+  background-color: #eee;
+}
+
+#cart-panel {
+  background-color: rgb(240, 240, 240);
+}
+
+#status {
+  border: 1px solid #aaa;
+}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="filters" class="row">
+  <div class="col-xs-3">
+    <div id="tag-list" class="list-group">
+    </div>
+
+    <div id="installed-filter" class="list-group">
+      <a href="#installed" class="list-group-item" data-tag="installed">
+        <span class="tag-name">installed</span>
+        <span class="badge">X</span>
+      </a>
+    </div>
+
+
+  </div>
+  <div class="col-xs-9"
+       id="gallery"
+       style="overflow-y:auto;width: 776px;" >
+
+    <h4>Available products</h4>
+    <table id="products-not-installed" class="table table-condensed product-list"></table>
+
+    <h4 style="padding-top: 10px">Installed products</h4>
+    <table id="products-installed" class="table table-condensed product-list"></table>
+
+  </div>
+</div>
+
+{{ handlebarsjs('tag_template') }}
+{{ handlebarsjs('product-template') }}
+
+{% endblock %}
+
+
+{% block service_content %}
+{% include '_cart_panel.html' %}
+{% endblock %}
+
+
+{% block page_scripts %}
+
+<script src="{{ static('zoo/gallery.js') }}"></script>
+<script src="{{ static('zoo/cart.js') }}"></script>
+<script src="{{ static('zoo/gallery-products-apps.js') }}"></script>
+<script src="{{ static('zoo/auto-upgrade.js') }}"></script>
+
+{% endblock %}

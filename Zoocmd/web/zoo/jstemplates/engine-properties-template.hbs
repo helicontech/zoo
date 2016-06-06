@@ -1,0 +1,34 @@
+  {{!-- invisible template --}}
+  <div class="form-group hide-soft" data-name="">
+    <div class="col-xs-4">
+      <input type="text" class="form-control key" value="">
+    </div>
+
+    <div class="col-xs-7">
+      <input type="text" class="form-control value" id="grid-param-" value="">
+    </div>
+
+    <div class="col-xs-1">
+      <i class="fa fa-times-circle text-danger remove"></i>
+    </div>
+  </div>
+  {{!-- invisible template --}}
+
+
+<div class="form-group">
+  <div class="checkbox">
+    <label for="engine-enabled">
+      <input type="checkbox" id="engine-enabled" {{#if config.enabled}}checked{{/if}} />
+      Enabled
+    </label>
+  </div>
+</div>
+
+<h4>Engine configuration</h4>
+<div id="engine-parameters-grid">
+</div>
+
+<h4>Environment variables</h4>
+<div id="engine-environment">
+</div>
+

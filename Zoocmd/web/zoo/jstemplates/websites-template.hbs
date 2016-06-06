@@ -1,0 +1,63 @@
+<div class="form-group" id="group-existing-website">
+  <label for="existing-website">Select existing site</label>
+  <select id="website" class="form-control">
+      <option value="">---</option>
+    {{#each websites}}
+      <option value="{{name}}">{{name}}</option>
+    {{/each}}
+  </select>
+</div>
+<div class="form-group">
+  <button class="btn btn-default" id="btn-new-website">Create new site</button>
+</div>
+<div class="hide-soft well well-sm" id="new-website">
+  <div class="alert alert-danger hide-soft" id="new-website-error"></div>
+  <div class="form-group">
+    <label>New Web Site Name</label>
+    <input class="form-control" type="text" id="new-website-name"/>
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-3">
+      <label>Protocol</label>
+      <input class="form-control" type="text" id="new-website-protocol" value="http"/>
+    </div>
+    <div class="form-group col-xs-3">
+      <label>IP Address</label>
+      <input class="form-control" type="text" id="new-website-ip-address" value="*"/>
+    </div>
+    <div class="form-group col-xs-3">
+      <label>Port</label>
+      <input class="form-control" type="text" id="new-website-port" value="8080"/>
+    </div>
+    <div class="form-group col-xs-3">
+      <label>Hostname</label>
+      <input class="form-control" type="text" id="new-website-hostname" value=""/>
+    </div>
+  </div>
+  <!--<button class="btn btn-primary" id="btn-new-website-create">Create</button>-->
+  <button class="btn btn-default" id="btn-new-website-cancel">Cancel</button>
+</div>
+
+<div class="form-group">
+  <label for="app_path">Application subfolder</label>
+  <input class="form-control" type="text" id="app_path"/>
+  <span class="help-block">
+    Example: '/blog'. Leave '/' to install in web site root.
+  </span>
+</div>
+
+
+
+<div class="form-group" id="group-existing-app-pool">
+  <label for="app-pool">Select existing application pool</label>
+  <select id="app-pool" class="form-control">
+    {{#each app_pools}}
+      <option value="{{name}}">{{name}}</option>
+    {{/each}}
+  </select>
+</div>
+<div class="form-group">
+  <label class="checkbox" for="checkbox-new-app-pool" style="margin-left:20px">
+    <input id="checkbox-new-app-pool" type="checkbox"> Create new application pool
+  </label>
+</div>

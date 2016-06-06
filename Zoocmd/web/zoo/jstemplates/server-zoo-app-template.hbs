@@ -1,0 +1,79 @@
+<div class="app-section {{#ifeq node.config.state "disabled"}}disabled{{/ifeq}}">
+  <div class="clearfix">
+<!--    <button
+        {{#ifeq node.config.state "enabled"}}
+          class="btn pull-right disable btn-default hidden"
+          data-toggle="tooltip" data-placement="top" title="How disabling zoo app works?"
+        {{else}}
+          class="btn pull-right enable btn-success"
+        {{/ifeq}}>
+      {{#ifeq node.config.state "enabled"}}
+        <i class="fa fa-pause"></i> Disable
+      {{else}}
+        <i class="fa fa-play"></i> Enable
+      {{/ifeq}}
+    </button>
+
+-->
+    {{#if node.config.application.icon}}
+      <img class="product-icon" src="/product/{{node.config.application.name}}/icon/"/>
+    {{else}}
+      <span class="product-icon"><i class="fa fa-cube"></i></span>
+    {{/if}}
+
+    <h3 class="product-title">
+      {{node.config.application.title}}
+      {{#ifeq node.config.state "disabled"}}(Disabled){{/ifeq}}
+    </h3>
+  </div>
+  <p class="product-description">
+    {{node.config.application.description}}
+  </p>
+
+  <p class="product-meta text-muted">
+    Version: <span class="product-version">{{node.config.application.version}}</span>
+    &middot;
+    {{node.config.application.author}}
+    &middot;
+    <a href="{{node.config.application.link}}">website</a>
+    &middot;
+    <a href="{{node.config.application.eula}}">license</a>
+  </p>
+
+
+  <div class="form-fit">
+    <hr/>
+    <div class="form-group">
+       <label>Engine:</label>
+    </div>
+    <div id="selected_engine_placeholder" >
+
+
+
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+       <label>Environment variables:</label>
+    </div>
+
+
+
+    <div id="app-environment" class="form-group"></div>
+
+    <hr/>
+    <label>Locations:</label>
+
+    <div id="app-location"></div>
+
+    <hr/>
+
+
+    <div class="clearfix">
+      <button class="btn btn-primary btn-lg save pull-right">Save</button>
+    </div>
+
+  </div>
+
+</div>

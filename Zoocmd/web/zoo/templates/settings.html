@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content_class %}content-settings{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-xs-6" style="border-right: 1px solid #eee">
+      <h2>Settings</h2>
+
+      <pre><code id="service-info"></code></pre>
+
+      <form role="form" class="form-fit" id="settings">
+
+        <div class="form-group">
+          <label for="webserver">Target Web Server</label>
+
+          <div class="help-block">Description of Target Web Server settings</div>
+          <select class="form-control" id="webserver" name="webserver">
+            <option value="iis" selected>IIS</option>
+            <option value="iisexpress">IIS Express</option>
+          </select>
+        </div>
+        <!--
+        <div class="form-group">
+          <label for="lang">Language</label>
+          <input type="text" class="form-control" id="lang" name="lang">
+        </div>
+        -->
+        <div class="form-group" id="urls-group">
+          <label for="urls">Additional feeds</label>
+
+          <div class="help-block">Put here additional product feed links that will be added to Zoo. HTTP links, UNC or local path are accepted.</div>
+          <div class="row" id="url-row">
+            <div class="col-xs-9">
+              <input type="text" class="form-control" id="url" name-temp="urls[]">
+            </div>
+            <div class="col-xs-3">
+              <button class="btn btn-default btn-sm remove hide-soft pull-right" type="button">
+                <i class="fa fa-times-circle text-danger"></i> Remove
+              </button>
+              <button class="btn btn-default btn-sm add disabled pull-right" id="add-url" type="button">
+                <i class="fa fa-plus-circle text-success"></i> Add feed
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="zoo_home">Zoo Home</label>
+          <div class="help-block">Description for Zoo Home setting</div>
+          <input type="text" class="form-control" id="zoo_home" name="zoo_home">
+        </div>
+
+        <br/>
+        <button type="button" class="btn btn-lg btn-success" id="save">Save & Reload</button>
+      </form>
+
+    </div>
+
+    <div class="col-xs-6">
+      <h2>Cache</h2>
+      <p>Current size: <span id="cache-size"></span></p>
+      <p class="help-block">Description of cache and cache clearing.</p>
+      <button type="button" class="btn btn-default btn-lg" id="clear-cache">Clear cache</button>
+      <br/><br/>
+      <h2>Logs</h2>
+      <p>Current size: <span id="logs-size"></span></p>
+      <p class="help-block">Description of logs and logs clearing.</p>
+      <button type="button" class="btn btn-default btn-lg" id="clear-logs">Clear logs</button>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+{% block service_content %}
+{% endblock %}
+
+
+
+{% block page_scripts %}
+  <script src="{{ static('zoo/settings.js') }}"></script>
+{% endblock %}

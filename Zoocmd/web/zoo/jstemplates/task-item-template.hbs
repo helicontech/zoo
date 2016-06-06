@@ -1,0 +1,8 @@
+<div class="list-group-item task-item" data-task-id="{{task.id}}">
+  <small class="pull-right text-muted">{{datetime_format task.created}} ({{datetime_fromnow task.created}})</small>
+  <h4>
+    <span class="text-muted">#{{task.id}}</span>
+    <a href="./{{task.id}}/">{{task.title}}</a>
+    <span class="label label-{{get_label_class task.status}}">{{task.status}}</span>
+  </h4>
+</div>

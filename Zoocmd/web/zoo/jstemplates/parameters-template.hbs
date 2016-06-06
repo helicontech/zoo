@@ -1,0 +1,23 @@
+<div class="parameter-item" data-product="{{product.name}}">
+  <div class="install-item-header clearfix" data-client-id="{{client_id}}">
+    {{#if product.icon}}
+      <img class="install-item-icon" src="/product/{{product.name}}/icon/" />
+    {{else}}
+      <span class="install-item-icon"><i class="fa fa-cube"></i></span>
+    {{/if}}
+    <div class="install-item-title clearfix">
+      <h3 class="title">{{product.title}}</h3>
+      <span class="product-version">{{product.version}}</span>
+      {{#if product.installed_version}}
+        <span class="label label-default"><i class="fa fa-check"></i> installed: {{product.installed_version}}</span>
+      {{/if}}
+    </div>
+  </div>
+
+  {{#each parameters}}
+  <div class="form-group" style="margin-top: 20px;">
+    <label for="parameter-{{../product.name}}-{{name}}" class="parameter-name">{{humanize_parameter_name name}}</label>
+    <input type="text" data-parameter="{{name}}" class="form-control parameter-value" id="parameter-{{../product.name}}-{{name}}" value="{{value}}">
+  </div>
+  {{/each}}
+</div>

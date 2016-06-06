@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Zoo{% endblock %}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ static( 'bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ static( 'bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
+  <link href="{{ static( 'css/arrows_tab.css') }}" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="{{ static( 'font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <!-- Site styles -->
+    <link href="{{ static( 'bootstrap/css/bootstrap-table.css') }}" rel="stylesheet">
+
+  <link href="{{ static( 'css/main.css') }}" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lte IE 9]>
+  <script src="{{ static( 'html5shiv/html5shiv.js') }}"></script>
+  <script src="{{ static( 'respond/respond.js') }}"></script>
+  <link href="{{ static( 'css/ie8.css') }}" rel="stylesheet">
+  <![endif]-->
+</head>
+<body>
+{% block header %}
+{% endblock %}
+
+<div class="container-fluid {% block content_class %}{% endblock %}" id="content-container">
+  <div class="qt_window">
+    {% block content %}{% endblock %}
+  </div>
+
+</div>
+
+{% block service_content %}{% endblock %}
+
+
+{#<footer>#}
+{#<div class="container-fluid">#}
+{#</div>#}
+{#</footer>#}
+
+<div id="status">
+  <img src="{{ static( 'img/loader.gif') }}">
+  <span id="status-message">loading log...</span>
+</div>
+
+<div id="info">
+</div>
+
+{{ handlebarsjs('core-errors') }}
+
+<!-- Error Modal -->
+<div class="modal fade" id="modal-error" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title text-danger"><i class="fa fa-warning"></i> An error occurred</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Confirm Modal -->
+<div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="modal-confirm-title"></h4>
+      </div>
+      <div class="modal-body" id="modal-confirm-body">
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:window.Task.finish_task()" type="button" class="btn btn-default" >OK</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- auto update block -->
+<div id="auto-upgrade">
+  <button type="button" class="close">&times;</button>
+  <p>
+    <i class="fa fa-bell"></i> New version of Helicon Zoo is available.
+  </p>
+  <p>
+    <a href="{{ url('upgrade') }}?products=Helicon.Zoo" class="btn btn-default">Upgrade</a>
+  </p>
+</div>
+
+
+<script src="{{ static( 'jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ static( 'jquery/jquery.cookie.js') }}"></script>
+<script src="{{ static( 'jquery/jquery.cookie.js') }}"></script>
+<script src="{{ static( 'jquery/editabletable.js') }}"></script>
+
+<script src="{{ static( 'bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ static( 'handlebars/handlebars-v1.3.0.js') }}"></script>
+<script src="{{ static( 'bootstrap/js/bootstrap-table.js') }}"></script>
+
+<script src="{{ static( 'moment.js/moment.js') }}"></script>
+<script src="{{ static( 'zoo/status.js') }}"></script>
+<script src="{{ static( 'zoo/error.js') }}"></script>
+<script src="{{ static( 'zoo/api.js') }}"></script>
+<script src="{{ static( 'zoo/common.js') }}"></script>
+<script src="{{ static( 'zoo/core-errors.js') }}"></script>
+
+
+{% block page_scripts %}{% endblock %}
+
+</body>
+</html>

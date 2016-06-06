@@ -1,0 +1,64 @@
+
+<div class="clearfix task-meta">
+<!--
+{{#unless task.is_finished}}
+  <button class="btn btn-danger pull-right" id="btn-task-cancel" style="margin-left: 10px;"><i class="fa fa-times"></i> Cancel</button>
+{{/unless}}
+-->
+<div class="pull-right">
+
+  <div class="btn-group browse-links" id="result-urls" style="display: inline-block">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      Browse target site
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+    </ul>
+  </div>
+
+  <button class="btn btn-default" id="btn-toggle-task-meta">Show task info</button>
+  {{#if task.is_finished}}
+  <button class="btn btn-default" id="btn-task-rerun" style="display:none"><i class="fa fa-refresh"></i> Re-run</button>
+  {{/if}}
+  <a href="./log/" class="btn btn-default"  style="display:none">Show verbose log</a>
+</div>
+<h2 style="margin-top: 0">
+  <!--<span class="text-muted">#{{task.id}}</span> -->
+
+  {{task.title}}
+  <span class="status label label-{{get_label_class task.status}}">
+    {{#unless task.is_finished}}
+      <i class="fa fa-cog fa-spin" id="icon-spin" style="margin-right: 10px"></i>
+    {{/unless}}
+    {{task.status}}
+  </span>
+</h2>
+</div>
+
+<table class="table table-bordered table-condensed hide-soft" id="task-meta">
+<tr>
+  <th>Created</th>
+  <td>{{datetime_format task.created}} <span class="text-muted">({{datetime_fromnow task.created}})</span> </td>
+</tr>
+<tr>
+  <th>Updated</th>
+  <td>{{datetime_format task.updated }} <span class="text-muted">({{datetime_fromnow task.updated}})</span> </td>
+</tr>
+<tr>
+  <th>Command</th>
+  <td>{{task.command}}</td>
+</tr>
+<tr>
+  <th>Parameters</th>
+  <td>
+    <pre><code>{{task.params_str}}</code></pre>
+  </td>
+</tr>
+{{#if task.error_message}}
+<tr>
+  <th class="text-danger">Error message</th>
+  <td class="log">{{task.error_message}}</td>
+</tr>
+{{/if}}
+</table>
+

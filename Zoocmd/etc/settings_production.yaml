@@ -1,0 +1,4 @@
+urls: ~
+webserver: iis
+tmp_log_path: tmp
+database_file: data\db.sqlite3

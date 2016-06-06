@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-xs-3">
+    <div id="server-tree">
+      <ul class="list-unstyled children">
+      </ul>
+      <p id="no-server" class="hide-soft">
+        The server <br/>
+        <strong><span class="server-name" id="no_server_name"></span></strong><br/>
+        is not installed<br/>
+        <a class="product-btn-install btn btn-success" id='no_server_name_install_link'>
+        <i class="fa fa-download"></i> install</a>
+      </p>
+    </div>
+  </div>
+
+  <div id="server-controls" class="col-xs-9" style="overflow-y:auto;width: 776px;">
+
+    <div id="zoo-app-placeholder" class="server-control">
+      <div class="clearfix">
+        <div class="btn-group pull-right browse-links">
+          <button class="btn btn-default start-web-console" type="button" style="margin-left: 10px">
+            <i class="fa fa-terminal"></i> Start web console
+          </button>
+
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            Browse <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">link</a></li>
+          </ul>
+        </div>
+        <h4>Installed Application</h4>
+      </div>
+      <div id="zoo-app" class="zoo-app"></div>
+    </div>
+
+
+
+    <div id="zoo-parent-app-placeholder" class="server-control zoo-app">
+    </div>
+
+    <div id="engines-placeholder" class="server-control">
+      <div id="server-installed-engines">
+        <h4>Installed Engines</h4>
+        <table id="engines-installed" class="product-list table table-condensed">
+        </table>
+      </div>
+
+      <div id="server-available-engines" style="padding-top: 10px">
+        <h4>Available Engines</h4>
+        <table id="engines-not-installed" class="product-list table table-condensed">
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <div id="no-app-placeholder" class="server-control">
+      <div class="well well-sm">
+          <div class="btn-group pull-right browse-links">
+            <button class="btn btn-default start-web-console" type="button" style="margin-left: 10px">
+              <i class="fa fa-terminal"></i> Start web console
+            </button>
+
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+              Browse <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">link</a></li>
+            </ul>
+          </div>
+
+        <p class="text-muted">There is no application on this node.</p>
+      </div>
+      <a href="{{ url('gallery') }}?filter=application" class="btn btn-default install-app"><i class="fa fa-plus-circle"></i> Install Zoo application here</a>
+    </div>
+
+  </div>
+</div>
+
+{{ handlebarsjs('tree-branch-template') }}
+{{ handlebarsjs('product-template') }}
+{{ handlebarsjs('server-engine-template') }}
+{{ handlebarsjs('engine-properties-template') }}
+{{ handlebarsjs('grid-template') }}
+{{ handlebarsjs('grid-template-option') }}
+{{ handlebarsjs('server-engine-list-template') }}
+{{ handlebarsjs('server-zoo-app-template') }}
+{{ handlebarsjs('server-parent-app-template') }}
+
+{% endblock %}
+
+
+{% block service_content %}
+{% include '_cart_panel.html' %}
+{% include 'engine/modal.html' %}
+{% endblock %}
+
+
+
+{% block page_scripts %}
+<script src="{{ static('zoo/gallery.js') }}"></script>
+<script src="{{ static('zoo/cart.js') }}"></script>
+<script src="{{ static('zoo/server-tree.js') }}"></script>
+<script src="{{ static('zoo/server.js') }}"></script>
+<script src="{{ static('zoo/engine.js') }}"></script>
+<script src="{{ static('zoo/grid.js') }}"></script>
+<script src="{{ static('zoo/auto-upgrade.js') }}"></script>
+{% endblock %}

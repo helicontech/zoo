@@ -1,0 +1,15 @@
+<div class="install-item uninstall clearfix" data-product="{{product.name}}">
+  <div class="install-item-content clearfix">
+    <div class="install-item-header clearfix">
+      {{#if product.icon}}
+        <img class="install-item-icon" src="/product/{{product.name}}/icon/" />
+      {{else}}
+        <span class="install-item-icon"><i class="fa fa-cube"></i></span>
+      {{/if}}
+      <div class="install-item-title clearfix">
+        <h3 class="title">{{product.title}}</h3>
+        <span class="product-version">{{product.installed_version}}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include defines.wxi ?>
+
+  <Fragment>
+    <DirectoryRef Id="ZooInstallerDir">      
+      <Component Id="win32event.pyd" Guid="{308F27B1-7EBE-43F4-9DC5-0AA9EBECD0F9}">
+        <File Id="win32event.pyd" KeyPath="yes" Source="$(var.SrcBinDir)\win32event.pyd" />
+      </Component>
+      <Component Id="pyuv.pyd" Guid="{B5908C58-7E2A-433F-8DE1-ED723CD94644}">
+        <File Id="pyuv.pyd" KeyPath="yes" Source="$(var.SrcBinDir)\pyuv.pyd" />
+      </Component>
+      <Component Id="libeay32.dll" Guid="{0F1FC851-9BB8-459D-8115-E8CFFE10DF6A}">
+        <File Id="libeay32.dll" KeyPath="yes" Source="$(var.SrcBinDir)\libeay32.dll" />
+      </Component>
+      <Component Id="cmpF588D850AE29CE82A385FEF2C3B0685D" Guid="{B9A6B11D-4A14-49D3-98C8-49894F6639FB}">
+        <File Id="filFDCB395318A074446662ADA99E570E8B" KeyPath="yes" Source="$(var.SrcBinDir)\icudt52.dll" />
+      </Component>
+      <Component Id="cmpB45DBB17C835C785D2AD071F0D6BFCA5" Guid="{F4B725E0-8FFF-4E3D-9FE6-7BEDF10B1A3F}">
+        <File Id="fil15A1E00EE31687E296F244FDDA569CD2" KeyPath="yes" Source="$(var.SrcBinDir)\icuin52.dll" />
+      </Component>
+      <Component Id="cmpAE592E68B9F88EC0818CD75AF77606F2" Guid="{AD5E517F-0940-41C6-BE75-BB1CC1D8EF16}">
+        <File Id="filB04F2AB72B2D0BFB763298F7D0699A9B" KeyPath="yes" Source="$(var.SrcBinDir)\icuuc52.dll" />
+      </Component>
+      <Component Id="cmpCC01C0C3256CC66C000DA49A61E62E79" Guid="{441191FC-CA0E-4C22-8EEB-BED9B6E791D2}">
+        <File Id="fil8A97D6CF97233A88EE8057561A819D13" KeyPath="yes" Source="$(var.SrcBinDir)\library.zip" />
+      </Component>
+      <Component Id="cmp2B6580C6FC465DAE42C021D72F78DF33" Guid="{7D11C3D8-64A3-4A44-922E-2B7BD8D7C567}">
+        <File Id="filFC696F132DDCA85543327B096181C75A" KeyPath="yes" Source="$(var.SrcBinDir)\markupsafe._speedups.pyd" />
+      </Component>
+      <Component Id="cmpBD0A4A2246FA903E5E5C7D1F3F310EC2" Guid="{9AC78C04-63DB-4C1E-BE9D-37E74314837B}">
+        <File Id="filBCF0001A17151425FBE016395A7F761E" KeyPath="yes" Source="$(var.SrcBinDir)\mfc100u.dll" />
+      </Component>
+      <Component Id="cmp8BBE6E5B5BBF554E78B2343BA2193B26" Guid="{8FA5EBFA-E5AC-458B-ADB0-52058488EA6D}">
+        <File Id="filB3D66BBF74D0932A2463A7D187FB659D" KeyPath="yes" Source="$(var.SrcBinDir)\pyexpat.pyd" />
+      </Component>
+      <Component Id="cmpD8F9CBB8C66FC137FEBEFC96418BBEA4" Guid="{24775EC3-B11D-4FAD-B175-D3E4165910D4}">
+        <File Id="fil1D24D7A9074877D1C9170673732E2567" KeyPath="yes" Source="$(var.SrcBinDir)\pymssql.pyd" />
+      </Component>
+      <Component Id="cmp30B35AAEBBA237C4156C18DF040E8D67" Guid="{5679D412-5D6E-4658-8495-C52B9CCC46AA}">
+        <File Id="fil0E8F28CC7B598E61D78CD7A0CD0D7CD5" KeyPath="yes" Source="$(var.SrcBinDir)\python34.dll" />
+      </Component>
+      <Component Id="cmp8DE7A37DDB9C26ACBCCF13F01B289424" Guid="{B8DB231F-9F13-4ADC-AB0B-215186EFDBE0}">
+        <File Id="filF9F331C33A1F514CDA371BAA4E0FF1D9" KeyPath="yes" Source="$(var.SrcBinDir)\pythoncom34.dll" />
+      </Component>
+      <Component Id="cmp086D9150B4A9B7CA1BEB21599C0532F0" Guid="{18D32B86-2990-4055-B80F-725637DB1229}">
+        <File Id="fil7BE6A0E458A9BB29A444CD57EF870907" KeyPath="yes" Source="$(var.SrcBinDir)\pywintypes34.dll" />
+      </Component>
+      <Component Id="cmpB7D6AD70623ADC174B86B4CBE60AB675" Guid="{5DFD9E62-3272-4A93-BA85-967BA44995C1}">
+        <File Id="fil3D79084D0BC322BC0BB0670B9D150A1C" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Core.dll" />
+      </Component>
+      <Component Id="cmpAD0E26840934510BB792A2E892E492D0" Guid="{077E2562-F350-4B8B-8D1E-9D3C9469D144}">
+        <File Id="filC2FECB07310B45B5FFB5BD9D6DC057C0" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Gui.dll" />
+      </Component>
+      <Component Id="cmpF45835650A3E7F9DD80E472DD91CA2A1" Guid="{B919BB30-5BAB-4A47-A25C-40872A9EFEB3}">
+        <File Id="filB31D92B09BB3CC33A8B4BB0D0021C601" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Multimedia.dll" />
+      </Component>
+      <Component Id="cmpDC77A58ED8C31DC4AA9AC947554388ED" Guid="{0BD99C96-4E07-41E0-9FB5-4DCCEF3B10A6}">
+        <File Id="filE7EBF85050C53A72DC25B6926F1C81EE" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5MultimediaWidgets.dll" />
+      </Component>
+      <Component Id="cmpF8AA7490669920C677C23C3868497593" Guid="{F51FDD2B-A43B-4E2D-88ED-BE87D5C00B22}">
+        <File Id="fil7AEECD1DB2D4ACCC7CA23EF6CD1D22FF" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Network.dll" />
+      </Component>
+      <Component Id="cmpE0A082318FCA8D6285923256444FAF59" Guid="{82019E7E-FDB2-4D5B-AE9A-D4BEF658898E}">
+        <File Id="fil28BEE5B43D19C75544277CD7C4B43FE4" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5OpenGL.dll" />
+      </Component>
+      <Component Id="cmpD24EC450A128BFE1365AB04CE2EBB093" Guid="{C3B7906A-F43A-4F2C-A517-DAC308893B7A}">
+        <File Id="fil34C79DA695F6ACDAD48D32F4B10AF0D4" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Positioning.dll" />
+      </Component>
+      <Component Id="cmp1164027103614D2DC2653544318F89ED" Guid="{A57BCC60-8EDB-433A-A3D4-E2105414706C}">
+        <File Id="fil425BA0A4B8E8D1116A7EFAACFE23E5C2" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5PrintSupport.dll" />
+      </Component>
+      <Component Id="cmpD7A82731FEC891CEA2331051EAF40D38" Guid="{3355AC2C-8203-4888-8A15-94FBED42F91E}">
+        <File Id="fil00C3D27273D415D99F64A591DCD1D5D7" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Qml.dll" />
+      </Component>
+      <Component Id="cmp891FA22A36FB5C679431AE2FDADD107B" Guid="{3E9A5F89-FDE7-4AA3-A4CC-A3302D8D5D2C}">
+        <File Id="filEAA958FE62B77E75296FAF744F8881A5" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Quick.dll" />
+      </Component>
+      <Component Id="cmp3B9E940D50D8E113AB8592CCA1DB0A2C" Guid="{9AA7F483-8B87-43E8-9D99-C7FCBFCFC2AD}">
+        <File Id="fil6D1CE2CA2F787BC18276543239B6A2FC" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Sensors.dll" />
+      </Component>
+      <Component Id="cmp144D890B18261A4A8967DDC5E1A92C61" Guid="{AC894914-2AE5-4C95-898A-B6F45A55D2F2}">
+        <File Id="fil7719820CC95AFD23F24CC0D5711A7A7B" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Sql.dll" />
+      </Component>
+      <Component Id="cmpA10D806C31F50272AC50DE25CECF3707" Guid="{57B13196-4BEC-45B0-90EC-A341EDA0C429}">
+        <File Id="filD7001F2241745610BF274208D17CCE08" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Svg.dll" />
+      </Component>
+      <Component Id="cmp7687CDBC5A5BAA8172D1DFBB9F831763" Guid="{D6FC7E98-A1D6-4305-B0D2-67DB18704E1E}">
+        <File Id="fil2BFD4E07510ED5386725A3F974750A01" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5WebKit.dll" />
+      </Component>
+      <Component Id="cmpBA4A6C644014E01D126663DB8963629B" Guid="{5573177F-DEFE-4C3F-8272-56A5E8AAFBA7}">
+        <File Id="fil5703D8FCA673BE75F1BA99D46F249E23" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5WebKitWidgets.dll" />
+      </Component>
+      <Component Id="cmpD93D58AF730EFD998306D9E518AECE99" Guid="{28BF0BB8-B6AB-44CC-AC2E-C6C429B0A8B8}">
+        <File Id="filC3F68F9D5074F0B143FDCE26E8F29648" KeyPath="yes" Source="$(var.SrcBinDir)\Qt5Widgets.dll" />
+      </Component>
+      <Component Id="cmp73E0BBC8C160DEE6D26015C897A526CF" Guid="{4FE403EF-5D77-4C01-BB79-B5705DA916E7}">
+        <File Id="fil8167B98F9C1E2BB5EB52209DD2BB08D4" KeyPath="yes" Source="$(var.SrcBinDir)\select.pyd" />
+      </Component>
+      <Component Id="cmp48EB8A53D54324E70E38279F72BE646D" Guid="{7809CEA4-C0A8-4501-8862-37FEB20FC6BC}">
+        <File Id="filC13E83FFFCCB948927CE660185058E8E" KeyPath="yes" Source="$(var.SrcBinDir)\sqlite3.dll" />
+      </Component>
+      <Component Id="cmpEA167FD09704B2506FE1B6D2D5E82267" Guid="{992F411F-CA48-4704-8248-EEF1CC9900A4}">
+        <File Id="fil59A1E3015529DFCF1365806749D967D1" KeyPath="yes" Source="$(var.SrcBinDir)\tornado.speedups.pyd" />
+      </Component>
+      <Component Id="cmp45FC0000286FB1F64201BEA00172765A" Guid="{4FA27E18-6D3A-472D-BEAD-55FCDD1696E5}">
+        <File Id="fil55B9365EED74683BCDD205EAE6179485" KeyPath="yes" Source="$(var.SrcBinDir)\unicodedata.pyd" />
+      </Component>
+      <Component Id="cmp9EE4585FB004BDD3672213FC2DC82F65" Guid="{214D4232-1309-42C6-B627-96C48702FDFA}">
+        <File Id="filF6C8ABF2F8F87021617F71B20250A4A1" KeyPath="yes" Source="$(var.SrcBinDir)\win32api.pyd" />
+      </Component>
+      <Component Id="cmp8B2C878AA7800D7F9034148186B6A88A" Guid="{EFA6619E-7C4D-4BD6-B4D4-2D5485846CA6}">
+        <File Id="filBC108917DC3F0C0152803D5255D8A28E" KeyPath="yes" Source="$(var.SrcBinDir)\win32evtlog.pyd" />
+      </Component>
+      <Component Id="cmpF679D8DFC06717351AAAF97FCAD5EF5C" Guid="{A9B8AFFB-3BEF-44EA-BC49-36C205DC0655}">
+        <File Id="filAB319C5D5428E27F16FDD8736E8AED45" KeyPath="yes" Source="$(var.SrcBinDir)\win32ui.pyd" />
+      </Component>
+      <Component Id="cmp4FF2CD34D569D9209C009CC610666EDF" Guid="{100A96D1-BA56-4677-8658-4601411F49C5}">
+        <File Id="fil5C29532D3572A91D9E66EB13AA7712A1" KeyPath="yes" Source="$(var.SrcBinDir)\win32wnet.pyd" />
+      </Component>
+      <Component Id="cmp17FD33E91BCA0164445F8F0D34EBD9FB" Guid="{C7902530-3520-40FE-B7FE-3894CD27E628}">
+        <File Id="filD9E7A29B7A51657511813B709F565F66" KeyPath="yes" Source="$(var.SrcBinDir)\Zoo.exe" />
+      </Component>
+      <Component Id="cmp8EBE0E08B2B1E22A19ECC076D613E430" Guid="{86C7031A-FD99-4159-859C-369051DC7406}">
+        <File Id="filD44B8A7E6532D0762C609E9C690CC6C9" KeyPath="yes" Source="$(var.SrcBinDir)\zoocmd.exe" />
+      </Component>
+      <Component Id="cmpD2676B6D8BC104ECE8F0010431730D71" Guid="{F02B1C61-4044-4267-AAB0-580103F320A7}">
+        <File Id="fil809D285F3E07A32F87644555D02496F9" KeyPath="yes" Source="$(var.SrcBinDir)\_bz2.pyd" />
+      </Component>
+      <Component Id="cmpDF3033F29223B45CCD9F3130639FDB5B" Guid="{4A743880-4C41-4BB9-980F-392B526864F6}">
+        <File Id="filE821AB9D0466888F5582C0EEC237A0CC" KeyPath="yes" Source="$(var.SrcBinDir)\_ctypes.pyd" />
+      </Component>
+      <Component Id="cmp0AF7E50B79C874FEF1FF5145E47FFAF1" Guid="{A137516C-1348-4E6D-91C7-F4D4A29E63EC}">
+        <File Id="fil30018FFACBDE110F8B4EE2DB46B35173" KeyPath="yes" Source="$(var.SrcBinDir)\_decimal.pyd" />
+      </Component>
+      <Component Id="cmp8A03102B81ADE88A2AD4A210090EF6B9" Guid="{7D556133-AD5F-4C1C-AA45-C1D769865FBD}">
+        <File Id="filD13AE69F66E16AB0B40CADD7093A5AB6" KeyPath="yes" Source="$(var.SrcBinDir)\_hashlib.pyd" />
+      </Component>
+      <Component Id="cmp90AD633D4A3CF9BC50B2E02481440CB7" Guid="{66F67108-F066-41A9-869D-4F54EA3015CA}">
+        <File Id="filB6ED7EFD855F002737860944E1BB25E2" KeyPath="yes" Source="$(var.SrcBinDir)\_lzma.pyd" />
+      </Component>
+      <Component Id="cmp1B6F83E4D195F6AB7ADFE690E6651376" Guid="{7DD0C46E-16EB-4720-82EE-D268D6BE5D29}">
+        <File Id="filF64ECBA141BEF5C5D360E70E905B0B83" KeyPath="yes" Source="$(var.SrcBinDir)\_mssql.pyd" />
+      </Component>
+      <Component Id="cmp390DC5B1CF4B6750DC56FD5FF95BE667" Guid="{EA47A635-8F70-4582-92FD-D41B881B9BF6}">
+        <File Id="filE3870CD061C1DC576B2BD4B7AAAB0180" KeyPath="yes" Source="$(var.SrcBinDir)\_multiprocessing.pyd" />
+      </Component>
+      <Component Id="cmpB99C90FA0AFED530779560904FCF60C3" Guid="{C888636F-AC56-4FD6-90EE-949D375AD8AF}">
+        <File Id="fil2BECBE482B0F18138B7CF74286B7FE3B" KeyPath="yes" Source="$(var.SrcBinDir)\_socket.pyd" />
+      </Component>
+      <Component Id="cmp7BCA7C32259D049D5FFBC3E265EDDC24" Guid="{87E950CA-E576-482F-90CB-9F91770C5D40}">
+        <File Id="fil3BA67EC2B217A022465197BAC205E509" KeyPath="yes" Source="$(var.SrcBinDir)\_sqlite3.pyd" />
+      </Component>
+      <Component Id="cmpAE60133AD929EC423E2CD906000A6D32" Guid="{53E1A46F-E1F2-4F02-8198-113BFE1623A5}">
+        <File Id="fil79BC73C14588021C9E1908CF3D829CC5" KeyPath="yes" Source="$(var.SrcBinDir)\_ssl.pyd" />
+      </Component>
+      <Component Id="cmpF28960D3D51D6988BB9B4D7C4A672397" Guid="{72DC2FB3-AC43-4D77-8C7B-2C1579F8E7B4}">
+        <File Id="fil32AB61F90911094C6D40B2BE67559935" KeyPath="yes" Source="$(var.SrcBinDir)\_yaml.pyd" />
+      </Component>
+      <Directory Id="dirD79CBAB007A85FCC46647D12D98179DB" Name="data">
+        <Component Id="cmp266BC146E4E4B02F460F318DAD9B9786" Guid="{20D2693E-78CC-46CE-BCF8-B0CA006C4369}">
+          <File Id="fil849A535E74CEC57B13A4737363D60FE1" KeyPath="yes" Source="$(var.SrcBinDir)\data\db.sqlite3" />
+        </Component>
+      </Directory>
+      <Directory Id="dirA614CDD9119D7888DCD1AF9DC85BF166" Name="plugins">
+        <Directory Id="dirDB7240CB1000464792DB74B4420C4CAE" Name="bearer">
+          <Component Id="cmpB476F0027930C579D74D24D39FD09372" Guid="{2B48175E-60D6-4F2E-884A-F6A0B67A0EAD}">
+            <File Id="filD6A948CE44E90AA0ACA5885DE00DB925" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\bearer\qgenericbearer.dll" />
+          </Component>
+          <Component Id="cmp191318000A0B342BCD8A8236C79FC26C" Guid="{74B1DAC4-35AF-4DCC-A957-64E784AA0183}">
+            <File Id="filDEAFCE936CC35D5B3007CD2B7735421D" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\bearer\qnativewifibearer.dll" />
+          </Component>
+        </Directory>
+        <Directory Id="dir5F65FA92A787DA9F63EF4F545B5FE97C" Name="imageformats">
+          <Component Id="cmpBDC30E2E5664C2C90F931CE8138F9276" Guid="{EC4105C1-2B92-45C4-933B-D1E09D182693}">
+            <File Id="filD946CE82DF1645FFCCBD53CB9A1935E3" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qdds.dll" />
+          </Component>
+          <Component Id="cmp83E67D8709DB12356577AACFCECE40CA" Guid="{9ECFDC74-34E4-4A6B-96D5-020E5AB30664}">
+            <File Id="filB6DA2D0B3468A25B0E6802E2F929FEB1" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qgif.dll" />
+          </Component>
+          <Component Id="cmp87C706A5256DB937E384FC77AD38878F" Guid="{B36D9E2D-C4AB-42BE-B437-9F6C886384D4}">
+            <File Id="fil0C0001D0F442EB5967265AFF09B9FB80" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qicns.dll" />
+          </Component>
+          <Component Id="cmpA92BEC3987B3FFAB7515CA1ABB59DA6E" Guid="{F399FD35-8900-40C8-8E05-30F9FD3B66E6}">
+            <File Id="filE219A3D3EA1E6CA7C0BF7817D2F9C4DE" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qico.dll" />
+          </Component>
+          <Component Id="cmp8ECA61CB57E75088BFBB3B7AFCE219E5" Guid="{EBFC36DE-263E-421A-9AA1-7D5F5D8FCAD6}">
+            <File Id="fil8E201A5B0FDCCE5B015CE67ADAAF4B1F" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qjp2.dll" />
+          </Component>
+          <Component Id="cmpF06E9D1472BABC73EC17EB1491B24859" Guid="{3EB38E82-D51A-42D1-9721-D618885F1ACB}">
+            <File Id="fil7ECE707D70BC66FFFFD43932117FA77D" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qjpeg.dll" />
+          </Component>
+          <Component Id="cmpC4C44C279BCDF65482AF086816BFA93E" Guid="{046EF1B8-C5D8-49F3-BD07-142593EFF760}">
+            <File Id="fil849229C41445A8A3C03D33FE59D46E55" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qmng.dll" />
+          </Component>
+          <Component Id="cmp046B6785B5C97D8DD73EC1B4C8147DE9" Guid="{B27BDFBB-C8DC-4350-B45C-7D39846B98AC}">
+            <File Id="filB92641F6DFEAF0CA8DFE38AB0A516152" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qsvg.dll" />
+          </Component>
+          <Component Id="cmpB211962C0A24A8DFFA54C3D181566AB5" Guid="{11455757-B630-4BC2-975A-746CCE945DD6}">
+            <File Id="filE1A43E5DC40E77AD8C3DD99B95333E42" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qtga.dll" />
+          </Component>
+          <Component Id="cmp086D59EF0AB98E764FEB1D31D5BEC4B5" Guid="{8BBC2774-8558-44A9-AF7C-9CE6832323B0}">
+            <File Id="filC3B965EA1A71CA1CC53CEC84A9128BE8" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qtiff.dll" />
+          </Component>
+          <Component Id="cmpB8EAE9F19051D83860AD2E89D2259D40" Guid="{914B7E8C-AF0F-4EFD-8F28-67C929DE7065}">
+            <File Id="fil7AE755C03A75AD47794E9A3809E0CC96" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qwbmp.dll" />
+          </Component>
+          <Component Id="cmp4EF4CA3DE16581AED0598270CDBECD60" Guid="{F9068D79-B068-4B21-B449-733141DAD904}">
+            <File Id="fil551EBF03029F58F780F4546A55F38C07" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\imageformats\qwebp.dll" />
+          </Component>
+        </Directory>
+        <Directory Id="dirD2D26535C072E2171AFF297490109911" Name="platforms">
+          <Component Id="cmp7F6DF2548D5D89F3812DE8D023870FB2" Guid="{8C5C6696-51CD-408B-9726-84F4D02C779B}">
+            <File Id="fil5C7366EFACC1F08B6CD9A3EA8911AC30" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\platforms\qwindows.dll" />
+          </Component>
+        </Directory>
+        <Directory Id="dir9A64733779357B675B43C3A0543283B2" Name="sensors">
+          <Component Id="cmp6B2B063BD6DAB6C1EA45FDFD548220DC" Guid="{0FBA86C3-F196-4534-8094-5A98BEB91564}">
+            <File Id="fil0A1372FC5C63055658307AEE53F89C87" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\sensors\qtsensors_dummy.dll" />
+          </Component>
+          <Component Id="cmp7F257CCB69520F9BCD77D9F0444C9D5A" Guid="{53BF3F12-D254-4CE8-A459-C4A143A41C65}">
+            <File Id="fil2FFDC5328891E0D565C98A45C3ACBDF3" KeyPath="yes" Source="$(var.SrcBinDir)\plugins\sensors\qtsensors_generic.dll" />
+          </Component>
+        </Directory>
+      </Directory>
+      <Directory Id="dir3B3C6DD2258C603E7297B0307862195A" Name="web">
+        <Directory Id="dir59B0A48BD89F4EA7DD0F6321A2A51FE4" Name="zoo">
+          <Directory Id="dir88AB918BF5726F6A9F9114FBC5A1D4FF" Name="jstemplates">
+            <Component Id="grid_template_option.hbs" Guid="{5849C280-AE79-40DE-85B3-804853957AD1}">
+              <File Id="grid_template_option.hbs" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\grid-template-option.hbs" />
+            </Component>
+              <Component Id="server-engine-list-template.hbs" Guid="{BA31D316-132B-4E9E-94DC-66E82AA70AB3}">
+                  <File Id="server-engine-list-template.hbs" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\server-engine-list-template.hbs" />
+              </Component>
+              <Component Id="server-engine-template.hbs" Guid="{2F9FA7BA-4507-4896-B81F-13E0914F4443}">
+                  <File Id="server-engine-template.hbs" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\server-engine-template.hbs" />
+              </Component>
+            <Component Id="cmp0189B19EE75CBD39DA5A7031F92666DE" Guid="{8C77AC1E-D0D6-4B6E-B126-DF20B50577CA}">
+              <File Id="fil312880DB57592D9E6002C45E55E18F16" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\core-errors.hbs" />
+            </Component>
+            <Component Id="cmp7967BDBEAEE5098B1C0C7E45300143CF" Guid="{7F91D645-CF86-4E3E-AEDA-AE5E8D0CE8B2}">
+              <File Id="fil9671418BB0C417113394924E49D85268" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\engine-properties-template.hbs" />
+            </Component>
+            <Component Id="cmp5B3BD91FB780041A697749A1531CFEF1" Guid="{9B23DA0B-2F90-4D68-BE2C-A2C8407094B2}">
+              <File Id="fil2320632034B7F735C2B9F505D620A8F3" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\grid-template.hbs" />
+            </Component>
+            <Component Id="cmpE9F7957BF864482BF1116D0E8789FD6A" Guid="{DCF34C39-E11B-4DB6-AC20-59F9B9E447CE}">
+              <File Id="fil86FE005E462B0DB9B2A49F25133A8694" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\parameters-template.hbs" />
+            </Component>
+            <Component Id="cmp7F1B3E2F38C58F37981799339D6D9120" Guid="{34190CFE-5AD9-49BF-9E14-EEDDC39F0A83}">
+              <File Id="fil00920BA02B08339CD63EDC4693AA84D0" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-install-errors.hbs" />
+            </Component>
+            <Component Id="cmp5FF2273FED18903B008765D056D952E9" Guid="{CB075810-FEB0-448A-A31A-C478F07FA623}">
+              <File Id="fil1B13453E2AFAB792948246FAD09579D2" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-install-template.hbs" />
+            </Component>
+            <Component Id="cmp0768CA3612A26EB429F9D8DCDE4F81AB" Guid="{C80F1DC0-B344-4B23-AD8E-FDE4B91086D3}">
+              <File Id="filAD78E19F354BC41E3AC081130068C645" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-install-template2.hbs" />
+            </Component>
+            <Component Id="cmp94AE97B0AC0962926D414D7610973B52" Guid="{80A9D2B7-3509-4679-870C-B45F7ABC9C69}">
+              <File Id="filF368DC9CEC3D78673590CF9129DF3063" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-licenses-template.hbs" />
+            </Component>
+            <Component Id="cmp2E70E4B045AB9D5570CE468C2028A4E3" Guid="{B25D51AE-FCA9-4F4D-A791-9258AFB92B17}">
+              <File Id="filD082C3CD6EA9EAC8D5D9F793D2B28AFF" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-template.hbs" />
+            </Component>
+            <Component Id="cmp90577BF51CFD71333962C950EF66E659" Guid="{22813C79-DB00-45EC-B761-77DE87B341DC}">
+              <File Id="fil6FEAB6D17F74C17269D6DCAD0C9622FE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-uninstall-template.hbs" />
+            </Component>
+            <Component Id="cmp27EE74291BDC8E2FED9A51202F1EA52F" Guid="{1D8FF0C3-6E0A-4440-90AC-ECF9CFDE7CF3}">
+              <File Id="filC4AAFC1D470BE610F0C7FB16C2ED1F26" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\product-upgrade-template.hbs" />
+            </Component>
+            <Component Id="cmp8E689B4809C40768F2AEF2F856222F46" Guid="{43B6F0A5-C8CB-4818-996F-7ABB5B283603}">
+              <File Id="filFA45F80E32E8B9D4055ADBA079A2C307" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\server-parent-app-template.hbs" />
+            </Component>
+            <Component Id="cmp2B87706234FFD1107D061CD73270FBD2" Guid="{316DC72E-2A21-405C-9A75-95EEF309FD1C}">
+              <File Id="filD0CD5377D33A5519C1D31E80A096E95E" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\server-zoo-app-template.hbs" />
+            </Component>
+            <Component Id="cmpD3DC93FEF43C3E006BB7486800F3198B" Guid="{216DB62C-D2DE-4424-A418-1602DF3ED580}">
+              <File Id="filF81F2587E52EFADA5B6E717AF4F2C8FA" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\tag_template.hbs" />
+            </Component>
+            <Component Id="cmpA0167DC76E873F0A500318DC4B451042" Guid="{4F6B7074-35DB-40EB-B9B3-060A2B193572}">
+              <File Id="fil1B78665E559EF3A9DBFF811D1B2213DD" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\task-item-template.hbs" />
+            </Component>
+            <Component Id="cmp532FB55B4CCE780B132A6B912BB2347E" Guid="{BC0A33C3-854A-44E4-BBBE-74C0051816B1}">
+              <File Id="fil9AC0F50346BFACFD953C637C0B6AE580" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\task-log-template.hbs" />
+            </Component>
+            <Component Id="cmp45FC7865B52CF27C5FB9CD69D6AADC16" Guid="{51E3B8ED-6481-4411-860A-5D57E51B33A5}">
+              <File Id="fil8C0D74A8E0A8AB6DE5036B863CDF043C" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\task-template.hbs" />
+            </Component>
+            <Component Id="cmp4C7DD422ED949288068A1BEAEA4E8B29" Guid="{913D32CC-4BA1-435F-AEA5-B84C31646D3F}">
+              <File Id="fil545619AA98DC5244544403EBD0F601C2" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\tree-branch-template.hbs" />
+            </Component>
+            <Component Id="cmp82A10046C00E8B0A78570F907BF58FA1" Guid="{3DF8DBD9-D94A-4AB7-A6A8-7FA2B6B4F5DF}">
+              <File Id="fil9887A1EB1D0F9CE18C1ABD83E52708D6" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\jstemplates\websites-template.hbs" />
+            </Component>
+          </Directory>
+          <Directory Id="dirBFFDE3AE5643B3A7E3E5E9F68275907F" Name="static">
+            <Directory Id="dirF3990845A2A5C276682CECA264E0DD74" Name="bootstrap">
+              <Directory Id="dirADA02FEA80FC23C000CFE107D4BAC642" Name="css">
+                <Component Id="cmp628F09A2ABE9FF31C00631F986E4841C" Guid="{0CC41778-66DC-49A9-90AA-43EAA8076B03}">
+                  <File Id="filAAA3505CE6B3CF546231A9CAB7C883E7" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\bootstrap\css\bootstrap-theme.css" />
+                </Component>
+                <Component Id="cmp17C00FB51D5166D6EC8CBAC35D13F5A9" Guid="{F14A80E9-BD4C-401C-8242-97264CD816CC}">
+                  <File Id="fil9FBB42EC8D9AA8BFAF5953DA28B0C73E" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\bootstrap\css\bootstrap-theme.min.css" />
+                </Component>
+                <Component Id="cmp6F27AD4C2E35D4E516348EB71E846F5C" Guid="{3362C646-FA91-4D5D-835C-F2A6589BD294}">
+                  <File Id="fil1714779B9B635BD5932D5F409D497061" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\bootstrap\css\bootstrap.css" />
+                </Component>
+                <Component Id="cmp0DE73C8220E533E40DE5B8C943A1F223" Guid="{47163FB0-1636-495C-A248-674D127C497F}">
+                  <File Id="filDD7A94D08F19CAEDF8B7C6F36C265295" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\bootstrap\css\bootstrap.min.css" />
+                </Component>
+              </Directory>
+              <Directory Id="dirD433204F09BBEB2361BE8688C60C4E53" Name="js">
+                <Component Id="cmp678506A38933A93FC90D17532C1B5D6C" Guid="{ABD0AE7E-5B07-4D97-B665-F3C97ED1D44E}">
+                  <File Id="fil78FDB31D217076214391BA04EF1510DE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\bootstrap\js\bootstrap.js" />
+                </Component>
+                <Component Id="cmpA5201B26977AF6F6FB3EA45EA5127783" Guid="{9C983C84-4974-4DB1-BA52-DC981220CE83}">
+                  <File Id="filECAC822D2412119B1A17C589D8631953" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\bootstrap\js\bootstrap.min.js" />
+                </Component>
+              </Directory>
+            </Directory>
+            <Directory Id="dir1F01EFBBE98C9F77A71A58B654B21FB8" Name="css">
+              <Component Id="cmp89C1F97D1619B0BF8CD20EADEAA6B196" Guid="{BE7D398C-0B45-4266-901F-39F6BB4BC568}">
+                <File Id="filA6FCE8F29B6AF76569717935E29E5BDF" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\css\arrows_tab.css" />
+              </Component>
+              <Component Id="cmpD8DE3CFED1D61E9DDACE3C7E5EF8A50B" Guid="{EDF41319-A628-4E73-8C9C-FD16768DFA84}">
+                <File Id="fil307A9F270272BD34857DE5A088D5733D" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\css\console.css" />
+              </Component>
+              <Component Id="cmp00B03D5FB253EDFFE0FA679C2BB94A06" Guid="{34EC07C2-0405-463E-B50D-4BA1D648304F}">
+                <File Id="filA76F05009C4FEE74B0A6636C4CF09BB3" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\css\ie8.css" />
+              </Component>
+              <Component Id="cmpB5EE13A6F851D96086C5D0A35AF6ED6E" Guid="{E969C111-58B9-42DF-AF71-27417F3E15BA}">
+                <File Id="fil6BFBB1F281B58715320B953AC271E1BA" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\css\main.css" />
+              </Component>
+            </Directory>
+            <Directory Id="dir24A160D80EBE31E927954DA32BE01BFA" Name="font-awesome">
+              <Directory Id="dirD09F9FF0967D0F94FDAE031B2E753723" Name="css">
+                <Component Id="cmpB066AC62530CE967F25B3510FC4DEE65" Guid="{9007EC08-E1DC-4308-8DD7-A64295936086}">
+                  <File Id="fil72316A37C449FB43D5975A66359EA96F" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\css\font-awesome.css" />
+                </Component>
+                <Component Id="cmpED6A0794913167B621E387A4DE9C2979" Guid="{C45858CC-7B0E-4AA4-AA8C-3BAF824B6F57}">
+                  <File Id="filA5A56638591FC16409427E6E8B82ADE7" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\css\font-awesome.min.css" />
+                </Component>
+              </Directory>
+              <Directory Id="dirA1031A23784FCD5AC4874A4AAE9E8297" Name="fonts">
+                <Component Id="cmpD39F57FA27CC81F3DE6C861961BFAB91" Guid="{816541B6-D360-48BF-984A-D6CDE2581329}">
+                  <File Id="filA1031DF5BADE6E2EF9C3B0C5EB848141" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\fonts\fontawesome-webfont.eot" />
+                </Component>
+                <Component Id="cmpF93AF2D7754E639D9A886F2B6B31E66C" Guid="{C18E00E3-E6C2-4F19-9368-6104A4A939CD}">
+                  <File Id="filB276B97E048F3BA3380B02496368175A" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\fonts\fontawesome-webfont.svg" />
+                </Component>
+                <Component Id="cmpBD63ECA9B8916B97A8151C6AEF1EAC66" Guid="{D6C3E553-363B-477C-A335-77DEAF9E396B}">
+                  <File Id="filC1C42C5E99B7E2470D04890908ED3D34" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\fonts\fontawesome-webfont.ttf" />
+                </Component>
+                <Component Id="cmpF131A564431419596580B973FAEE79A5" Guid="{8BA788A9-19D5-4905-B802-EBD07B0BFE6D}">
+                  <File Id="fil444977AF4637EEFF7F988A8C50D73172" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\fonts\fontawesome-webfont.woff" />
+                </Component>
+                <Component Id="cmpBF68BB8E7EA6A428717431859F233C07" Guid="{6800D076-A94B-4FF7-BAC8-6D9EE21D3417}">
+                  <File Id="fil5327112CA2611551CB896E7529849A31" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\font-awesome\fonts\FontAwesome.otf" />
+                </Component>
+              </Directory>
+            </Directory>
+            <Directory Id="dirFC118E2EBEF4CF57D326C074D04B47E9" Name="handlebars">
+              <Component Id="cmpD69655006D46ACEBB3FFABBDE8F7ADBA" Guid="{42C370A0-B524-435C-8892-37F4CE8A890F}">
+                <File Id="filBB04AE318B7C8C4DA83B57A777EDB2C1" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\handlebars\handlebars-v1.3.0.js" />
+              </Component>
+              <Component Id="cmp55C7421B37244BC996EE56F2DE5950CA" Guid="{24DACFC1-E821-4E55-A0CA-F0A0F996C36F}">
+                <File Id="fil96BCD609F8099B12327D8376A71D36B0" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\handlebars\handlebars.runtime-v1.3.0.js" />
+              </Component>
+            </Directory>
+            <Directory Id="dir6CF73C2D8DCEAFF460E9112760394486" Name="html5shiv">
+              <Component Id="cmp2AE766ED46D8DFFD392357F2E0FBE955" Guid="{2777DF4F-9851-4D5C-80DD-BF956E309D4E}">
+                <File Id="fil71772A83DD46053CCF52C48C663D3ABB" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\html5shiv\html5shiv.js" />
+              </Component>
+              <Component Id="cmpC7B70EDE9C80846742544C587A861A8C" Guid="{47096D1D-0E1B-4355-9460-43382D2FA66D}">
+                <File Id="fil87B976186C306A15CE6EEFD0E4E7809B" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\html5shiv\html5shiv.min.js" />
+              </Component>
+            </Directory>
+            <Directory Id="dirBABF91DED202BD6E646C5B2E7D51DF61" Name="img">
+              <Component Id="cmp8238E37DEE346D030B1394CBB59DD1D1" Guid="{F8F80A4E-82D2-404F-BDB1-2ACD1A235D7C}">
+                <File Id="fil821108542308A331157BFE09FADD5CBE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\img\256x256.png" />
+              </Component>
+              <Component Id="cmp05F4E36AA553326DE021FAAB9F3DAAB1" Guid="{32B0D66B-02EE-4BBD-9321-9CF068EC0FD2}">
+                <File Id="fil32C4E61A9FB9DC1F95B469A01AA93844" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\img\loader.gif" />
+              </Component>
+            </Directory>
+            <Directory Id="dir3639130950AAEEC534AC29E9CD5B3B21" Name="jquery">
+              <Component Id="cmp4846EC7D5DDC389D3F089EE2DBD526C8" Guid="{593DABA0-E6AC-48BC-AE00-5DCA8CAA51A6}">
+                <File Id="fil8DAE416B56DBE4D766CB0246A096B5E6" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\jquery\jquery-1.11.1.min.js" />
+              </Component>
+                
+                <Component Id="editabletable.js" Guid="{5B6CC1C5-9410-41B6-AB03-7B1FC13D10AE}">
+                    <File Id="editabletable.js" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\jquery\editabletable.js" />
+                </Component>
+                
+              <Component Id="cmpA2AE1B1A41EAEA41B33DA0DEAF5FDEF5" Guid="{94E63C3B-8965-43A2-A954-BF702FB5D8BB}">
+                <File Id="fil98E98102643B07F3F18B48FF4CD947A7" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\jquery\jquery-2.1.1.min.js" />
+              </Component>
+              <Component Id="cmpE9A1FC2C38C1F42C1074D7BDF995D21C" Guid="{0A20CE58-32EC-4F2F-8F22-8892A7B4633D}">
+                <File Id="fil882A72A278EC0ED4594B456873C7391E" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\jquery\jquery.cookie.js" />
+              </Component>
+            </Directory>
+            <Directory Id="dir5EF707497850B74E59778FE0B09C2D39" Name="math.uuid">
+              <Component Id="cmp24CFE22274C99DF2DAF93D1D1E08EC26" Guid="{6E156E9C-2592-4616-AA42-A16F16A23409}">
+                <File Id="fil55EE89519EC7C980BB61B261E2C0BC82" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\math.uuid\Math.uuid.js" />
+              </Component>
+            </Directory>
+            <Directory Id="dir62DBA5F18D8FFDF1615141526725DB17" Name="moment.js">
+              <Component Id="cmp7367B7670979E45592AFE4A396CAD7D3" Guid="{A24D1704-0411-4DB3-B0D0-D5B971A14217}">
+                <File Id="filA51BC99ED16CDA5C5C827D88E8E09A6E" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\moment.js\moment.js" />
+              </Component>
+            </Directory>
+            <Directory Id="dirA52D028BDEC61EBDAC284E2F3DE68955" Name="respond">
+              <Component Id="cmp001748BE6F20806AAE7D164AF8BA59A0" Guid="{B3675BD1-F79F-4C5D-A0F9-9E88032CE1B5}">
+                <File Id="fil2FE95E1691C520C820C25B862737EBBE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\respond\respond.js" />
+              </Component>
+            </Directory>
+            <Directory Id="dirE300D875FCBE41E5B93FB0159B8B832E" Name="zoo">
+              <Component Id="cmp77CD30C36E55297F1B1648E0823B09D3" Guid="{E7152CAC-B2D5-450C-8907-80A2E07B6153}">
+                <File Id="fil457CFB349D11D571F95D96C9DD55C4A8" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\api.js" />
+              </Component>
+              <Component Id="cmp4E2D020F0E927B89F837060F817F89BB" Guid="{763E7928-73CD-43E3-BDF5-C0D7F0F3D650}">
+                <File Id="fil4AAC320FD6F69F94AB5D3191BBCE67E1" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\auto-upgrade.js" />
+              </Component>
+              <Component Id="cmpEB88AB5BA2B3FDCEF813BDEC5D7CC3B6" Guid="{B9F97804-4B10-421C-99F5-420E6EE1563F}">
+                <File Id="fil4845FC488C39924034B9AABB22521332" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\cart.js" />
+              </Component>
+              <Component Id="cmpBCDF4A6F44BDE79F444F2E556DCAAE14" Guid="{ADDB4D3D-6134-42C5-AE8C-46B9526BA204}">
+                <File Id="fil626687EED9B78CC5FC41436E9759360D" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\common.js" />
+              </Component>
+              <Component Id="cmp76ED3D2871DAFB3335EA64EB9EF08BA2" Guid="{1D72078D-061D-4443-AAF7-94CB39A91111}">
+                <File Id="fil418E93B0F95349DC6733137DE7FACDBF" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\console.js" />
+              </Component>
+              <Component Id="cmpB386A2DD586240DBFF67A52A86AFE5AD" Guid="{C7D59799-56CB-4BFC-9EC5-1A31899855E1}">
+                <File Id="filE0B14201AA6B199862B210545679FBFE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\core-errors.js" />
+              </Component>
+              <Component Id="cmp8B4F6E3C751A5FF18956AB5DEA3C67BB" Guid="{6389B738-7B2A-4D2A-9BA3-64506D29BC08}">
+                <File Id="fil8F52DA12FC862203DBB8162F497CD758" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\database.js" />
+              </Component>
+              <Component Id="cmp644DBE55AD8949ACFE0F8E92A95B6740" Guid="{E5396614-6C8F-4857-AB28-5C4FD57080DC}">
+                <File Id="fil5BBC653B29E720F02321D6D58CC7B1F0" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\dependency-tree.js" />
+              </Component>
+              <Component Id="cmpD0D50BF8A84BA49D6A9D4DDF5A2038E3" Guid="{EB1E583D-7773-4FB8-BCDA-E582A0E335AE}">
+                <File Id="fil47D2AB7457D70BBB76AC455E89B43E26" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\engine.js" />
+              </Component>
+              <Component Id="cmpC8C22B15E983C29763FD2D1AD45AE118" Guid="{3613292D-0F16-4B04-866D-5B37E284F9ED}">
+                <File Id="fil7C20537CA72819DD8FB86BC103EA3FCD" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\error.js" />
+              </Component>
+              <Component Id="cmp84E32C402599D708533FD012944939EE" Guid="{DBE5EC76-78FC-4D65-8896-76961C822A11}">
+                <File Id="fil3257079554197AA39822412E30EC5921" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\gallery-products-apps.js" />
+              </Component>
+              <Component Id="cmp21AB0E42203CE5D5E4E64468DCCDF274" Guid="{13D8536D-B21C-493F-94C3-09AC7F4A3E10}">
+                <File Id="fil9CF4AD685CEF4B621DC2B87CFA7BECFD" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\gallery.js" />
+              </Component>
+              <Component Id="cmpB57E5A38BFDBC52CC7138CE1A2726B0D" Guid="{4E37F631-423B-47E0-910C-B7F0F331B94A}">
+                <File Id="fil45BDB6EB510C0964B3897C55DA4E4416" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\grid.js" />
+              </Component>
+              <Component Id="cmpB4E8A5243388F5EA4B01F427C5B719CC" Guid="{E36F54DA-21D1-4F55-8332-B7E0224D6DDE}">
+                <File Id="filFEA00A8A591AAA0889017C2A0C7447F2" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\include_install2.js" />
+              </Component>
+              <Component Id="cmp29F4843B4C73BB1D35C1896723E907D8" Guid="{8ACCBC90-D379-42F9-AE02-C7BDC0F1CBC7}">
+                <File Id="fil46FF8A9DD5E8C947878E9E9415D40D52" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\include_task.js" />
+              </Component>
+              <Component Id="cmp81D3329FB0F9167C6BA852CF0E2DAA3A" Guid="{E2E402D2-2A10-4BB0-985E-5765C44E2DB4}">
+                <File Id="fil9804ED018D8FA0890B300343203BBF3B" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\include_uninstall.js" />
+              </Component>
+              <Component Id="cmp173EE708CCC7A8F32E0EE6B09FD55CC8" Guid="{3B46CBFD-63FA-4203-AB1E-741A304FF2CB}">
+                <File Id="filF7AFD3958B406204278AEE407BB8A529" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\install2.js" />
+              </Component>
+              <Component Id="cmp4368DD490A9C4C06E7690E174D0F440E" Guid="{C8AFCC04-0AE4-4C02-9FBD-40D9801AC9A2}">
+                <File Id="filF11C1A247BFB4781CA3DFCD3B7E49C92" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\main.js" />
+              </Component>
+              <Component Id="cmp9D5DA70D860DAF39CA83F94161BB010E" Guid="{4F8343D1-07A5-49B6-9266-CF2513227EAC}">
+                <File Id="filF84CF6B22026207B7AE2E1D824172A7B" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\server-tree.js" />
+              </Component>
+              <Component Id="cmp617A6C29AEBD2E7EAA87218A771E9439" Guid="{69F9FE71-0777-4FA1-96FE-17CA7CF5A924}">
+                <File Id="fil06BBE74920ABE77109B1C213CC9B0508" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\server.js" />
+              </Component>
+              <Component Id="cmpE168F121D444944E117A0820ECC2B841" Guid="{71D9C185-858E-4565-89DA-CB98898A0AE2}">
+                <File Id="fil9166ABF120482ADBBB34AE7F3C827800" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\settings.js" />
+              </Component>
+              <Component Id="cmp6BD9C7FAC9CD57BB7A13DFEF3C35D687" Guid="{BFD82F50-B831-4D0D-B156-258A6B47570F}">
+                <File Id="filA11DCC7E771DE75B236DF1E7C26D2C9B" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\status.js" />
+              </Component>
+              <Component Id="cmp89894698B0892740D9B5ACA0BDD36A02" Guid="{DE70249B-EA01-4130-9DDE-8D9179620113}">
+                <File Id="filD65B70C8715C46DF4C93B9EBD5F95667" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\sync.js" />
+              </Component>
+              <Component Id="cmpED7DA8065B9D9EDE19F5C8B76B5F8F32" Guid="{474683DB-FF36-4675-89FA-A38BBAB8EF8F}">
+                <File Id="fil92CBE7F781769C178686364564E5F01D" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\task-list.js" />
+              </Component>
+              <Component Id="cmp606A7B4799485568425B5767EEA0007A" Guid="{A80421AB-2729-49E4-8ECB-C5A387A6218A}">
+                <File Id="filF8B12AD38E229D849FCB9F273085C532" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\task-log.js" />
+              </Component>
+              <Component Id="cmp71A28B1E92CCD5D416250FF560FC7D41" Guid="{0F61C104-9E57-49EB-936E-8FF70316E287}">
+                <File Id="filF8625510B7C8F3ED9DD4ED4690C8CEC7" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\task.js" />
+              </Component>
+              <Component Id="cmp20853D1487EFF62CC4B7772B862333EF" Guid="{3F9EF68F-02E1-4CBB-B68B-1B6607CAAB22}">
+                <File Id="filC99C6E15654797326314E68CB1670FC5" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\uninstall.js" />
+              </Component>
+              <Component Id="cmpEE512413449D53B186DB961D945A8CA2" Guid="{1D218ACA-7C09-4EAB-96F8-9F7D2CEF5B1F}">
+                <File Id="filBF88B5190AD015B3806C5A9DE70CFD64" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\upgrade.js" />
+              </Component>
+              <Component Id="cmp419F160C2B816F8411CB68104D13B077" Guid="{F22F5ABF-D411-4328-843C-16765E62AE6E}">
+                <File Id="filC086D8D527821E94DCAC08410D9654B3" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\upgrade2.js" />
+              </Component>
+              <Component Id="cmp8A8F58A527690C5F968ADF9BF52C7090" Guid="{7E7F4DED-9B36-45F9-9A73-3F6306D48319}">
+                <File Id="fil01C6D8EDBE5B9F6B0C309689947499FE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\static\zoo\websites.js" />
+              </Component>
+            </Directory>
+          </Directory>
+          <Directory Id="dirE9BC3D47E5DEB0CCBC21BDF55F28D32C" Name="templates">
+            <Component Id="cmp3EB6DF03956CBFB064DD3375EA7CD885" Guid="{52B82100-DE7E-4F81-BAE8-976D16F8012F}">
+              <File Id="fil86B80E3C97D18DFC1C8AE10EE5090F42" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\base.html" />
+            </Component>
+            <Component Id="cmp1DC093D4D360B3835D81A880B53B15AD" Guid="{336BCD0E-F604-4DB2-9C73-FF4E68B7A2A8}">
+              <File Id="filF50BA5BB8FC2F600E793DEE58051A70B" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\base_without_header.html" />
+            </Component>
+            <Component Id="cmpC4B780AD2C8BBABA0D08ECFA2630DEFB" Guid="{362CEF44-0435-42E0-A0E0-391AFA18F0C2}">
+              <File Id="fil879726C3654E52C1131B02B96F4757F8" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\console.html" />
+            </Component>
+            <Component Id="cmp623544F33F6E487113EA6D118611C8C8" Guid="{23175104-D4ED-49F4-867D-C68B49C85D93}">
+              <File Id="fil1E3A8CDEE8AE58893F032816CD028510" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\gallery.html" />
+            </Component>
+            <Component Id="cmpF8CDD1E6A7EF4B9BC1551C1E4455B300" Guid="{BCBED25D-0445-4180-9FE9-42A9992FA19F}">
+              <File Id="fil294609AFB43F5269CB99A9E84D935EB6" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\home.html" />
+            </Component>
+            <Component Id="cmp9E51F2E2EDC361724BC0E7E47F2E6E31" Guid="{1615DE9D-30DA-40A4-BA17-BF9CD30F8F59}">
+              <File Id="filE23208208E8367E2C4C009D43D74A723" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\install2.html" />
+            </Component>
+            <Component Id="cmpAD09A10050A5BF0F6C9D173D5C565526" Guid="{DD3A4200-50D2-4501-B3C9-47A9B566FB35}">
+              <File Id="fil9F0B9B4C22F2133BFEA8F9938B179613" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\install_application.html" />
+            </Component>
+            <Component Id="cmpCB9982F6F62BADBBB6F15C3161E3E4F4" Guid="{45B461E7-113D-4C42-8F06-77AAAEA21526}">
+              <File Id="filA5303023883C759D13F3B1EC6E6A1C2C" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\main_base.html" />
+            </Component>
+            <Component Id="cmpEE88F61474105A71626B9FB2F8449E5E" Guid="{A839072C-3B75-4005-9D1C-AF54687FFF63}">
+              <File Id="fil25B5A09BF0F4FD7FC8B4D569E0C5D8FE" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\server.html" />
+            </Component>
+            <Component Id="cmp8A5BC6565EE45FA31292956BF75B8DEB" Guid="{CE607EEC-9455-40F2-A4EE-178BE8E1F0D2}">
+              <File Id="filCCC761F42190EC040ACCBD0EE5E2B107" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\settings.html" />
+            </Component>
+            <Component Id="cmp5F497C8EB793BB4B356953630F0905F9" Guid="{8AB0390D-1914-45E7-B53A-103D4505E209}">
+              <File Id="fil02BC32200B0F83B916AEAF08A7C6DE98" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\sync.html" />
+            </Component>
+            <Component Id="cmpBBD35EFEDBA5713170574CBC6CFCD661" Guid="{63775F74-391C-44FB-8391-6560A956993B}">
+              <File Id="filB61EAB752C37073BC87EF257200FCA73" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\task.html" />
+            </Component>
+            <Component Id="cmpD7B9E6E5AD29FA0B2345509C69C7AA9D" Guid="{E510B17D-12EC-4862-B22D-EBEDC181CFF2}">
+              <File Id="filD8607A47A0E66A0F6A985B1FB49A755D" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\task_list.html" />
+            </Component>
+            <Component Id="cmp1E11F3BBE23D6181525332331093569C" Guid="{CEE099DF-B195-4944-90D7-99887F7EF8E7}">
+              <File Id="fil741E09FE2EFB5A4EC9E83A3EB07BC788" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\task_log.html" />
+            </Component>
+            <Component Id="cmpCC0EE94E5670AACC2CB3A36D90898AE0" Guid="{A15C206A-6275-4124-B96A-311DA34F3F12}">
+              <File Id="fil434D3976E99AF88BCDAAA1406957B9E4" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\uninstall.html" />
+            </Component>
+            <Component Id="cmp28C6CC1DAF368C8CD9B4706684F534CE" Guid="{00115D41-FB97-415F-AC8B-46E0031E0558}">
+              <File Id="fil9EBA1A37AC10272F9B3845FA34F078DF" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\upgrade.html" />
+            </Component>
+            <Component Id="cmpF8B11E4635E3A471A3B4D869C3F1E2E4" Guid="{A6ED1903-D663-40FA-A750-03227951B728}">
+              <File Id="fil4B084F3C7E520F2D4DFC90957F0C3233" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\_cart_panel.html" />
+            </Component>
+            <Directory Id="dirF499A57A6EF8F3DC1491B2A959CF335C" Name="engine">
+              <Component Id="cmp88ECAC8BF1D0E7EE4AF940B2C0ECA094" Guid="{FA0A491B-7847-4033-8F55-5C4D231CF830}">
+                <File Id="filE2068A73D09B2800BBAB3E6EFA6AE4D6" KeyPath="yes" Source="$(var.SrcBinDir)\web\zoo\templates\engine\modal.html" />
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="ProductBinaries">
+      <ComponentRef Id="cmpF588D850AE29CE82A385FEF2C3B0685D" />
+      <ComponentRef Id="cmpB45DBB17C835C785D2AD071F0D6BFCA5" />
+      <ComponentRef Id="cmpAE592E68B9F88EC0818CD75AF77606F2" />
+      <ComponentRef Id="cmpCC01C0C3256CC66C000DA49A61E62E79" />
+      <ComponentRef Id="cmp2B6580C6FC465DAE42C021D72F78DF33" />
+      <ComponentRef Id="cmpBD0A4A2246FA903E5E5C7D1F3F310EC2" />
+      <ComponentRef Id="cmp8BBE6E5B5BBF554E78B2343BA2193B26" />
+      <ComponentRef Id="cmpD8F9CBB8C66FC137FEBEFC96418BBEA4" />
+      <ComponentRef Id="cmp30B35AAEBBA237C4156C18DF040E8D67" />
+      <ComponentRef Id="cmp8DE7A37DDB9C26ACBCCF13F01B289424" />
+      <ComponentRef Id="cmp086D9150B4A9B7CA1BEB21599C0532F0" />
+      <ComponentRef Id="cmpB7D6AD70623ADC174B86B4CBE60AB675" />
+      <ComponentRef Id="cmpAD0E26840934510BB792A2E892E492D0" />
+      <ComponentRef Id="cmpF45835650A3E7F9DD80E472DD91CA2A1" />
+      <ComponentRef Id="cmpDC77A58ED8C31DC4AA9AC947554388ED" />
+      <ComponentRef Id="cmpF8AA7490669920C677C23C3868497593" />
+      <ComponentRef Id="cmpE0A082318FCA8D6285923256444FAF59" />
+      <ComponentRef Id="cmpD24EC450A128BFE1365AB04CE2EBB093" />
+      <ComponentRef Id="cmp1164027103614D2DC2653544318F89ED" />
+      <ComponentRef Id="cmpD7A82731FEC891CEA2331051EAF40D38" />
+      <ComponentRef Id="cmp891FA22A36FB5C679431AE2FDADD107B" />
+      <ComponentRef Id="cmp3B9E940D50D8E113AB8592CCA1DB0A2C" />
+      <ComponentRef Id="cmp144D890B18261A4A8967DDC5E1A92C61" />
+      <ComponentRef Id="cmpA10D806C31F50272AC50DE25CECF3707" />
+      <ComponentRef Id="cmp7687CDBC5A5BAA8172D1DFBB9F831763" />
+      <ComponentRef Id="cmpBA4A6C644014E01D126663DB8963629B" />
+      <ComponentRef Id="cmpD93D58AF730EFD998306D9E518AECE99" />
+      <ComponentRef Id="cmp73E0BBC8C160DEE6D26015C897A526CF" />
+      <ComponentRef Id="cmp48EB8A53D54324E70E38279F72BE646D" />
+      <ComponentRef Id="cmpEA167FD09704B2506FE1B6D2D5E82267" />
+      <ComponentRef Id="cmp45FC0000286FB1F64201BEA00172765A" />
+      <ComponentRef Id="cmp9EE4585FB004BDD3672213FC2DC82F65" />
+      <ComponentRef Id="cmp8B2C878AA7800D7F9034148186B6A88A" />
+      <ComponentRef Id="cmpF679D8DFC06717351AAAF97FCAD5EF5C" />
+      <ComponentRef Id="cmp4FF2CD34D569D9209C009CC610666EDF" />
+      <ComponentRef Id="cmp17FD33E91BCA0164445F8F0D34EBD9FB" />
+      <ComponentRef Id="cmp8EBE0E08B2B1E22A19ECC076D613E430" />
+      <ComponentRef Id="cmpD2676B6D8BC104ECE8F0010431730D71" />
+      <ComponentRef Id="cmpDF3033F29223B45CCD9F3130639FDB5B" />
+      <ComponentRef Id="cmp0AF7E50B79C874FEF1FF5145E47FFAF1" />
+      <ComponentRef Id="cmp8A03102B81ADE88A2AD4A210090EF6B9" />
+      <ComponentRef Id="cmp90AD633D4A3CF9BC50B2E02481440CB7" />
+      <ComponentRef Id="cmp1B6F83E4D195F6AB7ADFE690E6651376" />
+      <ComponentRef Id="cmp390DC5B1CF4B6750DC56FD5FF95BE667" />
+      <ComponentRef Id="cmpB99C90FA0AFED530779560904FCF60C3" />
+      <ComponentRef Id="cmp7BCA7C32259D049D5FFBC3E265EDDC24" />
+      <ComponentRef Id="cmpAE60133AD929EC423E2CD906000A6D32" />
+      <ComponentRef Id="cmpF28960D3D51D6988BB9B4D7C4A672397" />
+      <ComponentRef Id="cmp266BC146E4E4B02F460F318DAD9B9786" />
+      <ComponentRef Id="cmpB476F0027930C579D74D24D39FD09372" />
+      <ComponentRef Id="cmp191318000A0B342BCD8A8236C79FC26C" />
+      <ComponentRef Id="cmpBDC30E2E5664C2C90F931CE8138F9276" />
+      <ComponentRef Id="cmp83E67D8709DB12356577AACFCECE40CA" />
+      <ComponentRef Id="cmp87C706A5256DB937E384FC77AD38878F" />
+      <ComponentRef Id="cmpA92BEC3987B3FFAB7515CA1ABB59DA6E" />
+      <ComponentRef Id="cmp8ECA61CB57E75088BFBB3B7AFCE219E5" />
+      <ComponentRef Id="cmpF06E9D1472BABC73EC17EB1491B24859" />
+      <ComponentRef Id="cmpC4C44C279BCDF65482AF086816BFA93E" />
+      <ComponentRef Id="cmp046B6785B5C97D8DD73EC1B4C8147DE9" />
+      <ComponentRef Id="cmpB211962C0A24A8DFFA54C3D181566AB5" />
+      <ComponentRef Id="cmp086D59EF0AB98E764FEB1D31D5BEC4B5" />
+      <ComponentRef Id="cmpB8EAE9F19051D83860AD2E89D2259D40" />
+      <ComponentRef Id="cmp4EF4CA3DE16581AED0598270CDBECD60" />
+      <ComponentRef Id="cmp7F6DF2548D5D89F3812DE8D023870FB2" />
+      <ComponentRef Id="cmp6B2B063BD6DAB6C1EA45FDFD548220DC" />
+      <ComponentRef Id="cmp7F257CCB69520F9BCD77D9F0444C9D5A" />
+      <ComponentRef Id="cmp0189B19EE75CBD39DA5A7031F92666DE" />
+      <ComponentRef Id="cmp7967BDBEAEE5098B1C0C7E45300143CF" />
+      <ComponentRef Id="cmp5B3BD91FB780041A697749A1531CFEF1" />
+      <ComponentRef Id="cmpE9F7957BF864482BF1116D0E8789FD6A" />
+      <ComponentRef Id="cmp7F1B3E2F38C58F37981799339D6D9120" />
+      <ComponentRef Id="cmp5FF2273FED18903B008765D056D952E9" />
+      <ComponentRef Id="cmp0768CA3612A26EB429F9D8DCDE4F81AB" />
+      <ComponentRef Id="cmp94AE97B0AC0962926D414D7610973B52" />
+      <ComponentRef Id="cmp2E70E4B045AB9D5570CE468C2028A4E3" />
+      <ComponentRef Id="cmp90577BF51CFD71333962C950EF66E659" />
+      <ComponentRef Id="cmp27EE74291BDC8E2FED9A51202F1EA52F" />
+      <ComponentRef Id="cmp8E689B4809C40768F2AEF2F856222F46" />
+      <ComponentRef Id="cmp2B87706234FFD1107D061CD73270FBD2" />
+      <ComponentRef Id="cmpD3DC93FEF43C3E006BB7486800F3198B" />
+      <ComponentRef Id="cmpA0167DC76E873F0A500318DC4B451042" />
+      <ComponentRef Id="cmp532FB55B4CCE780B132A6B912BB2347E" />
+      <ComponentRef Id="cmp45FC7865B52CF27C5FB9CD69D6AADC16" />
+      <ComponentRef Id="cmp4C7DD422ED949288068A1BEAEA4E8B29" />
+      <ComponentRef Id="cmp82A10046C00E8B0A78570F907BF58FA1" />
+      <ComponentRef Id="cmp628F09A2ABE9FF31C00631F986E4841C" />
+      <ComponentRef Id="cmp17C00FB51D5166D6EC8CBAC35D13F5A9" />
+      <ComponentRef Id="cmp6F27AD4C2E35D4E516348EB71E846F5C" />
+      <ComponentRef Id="cmp0DE73C8220E533E40DE5B8C943A1F223" />
+      <ComponentRef Id="cmp678506A38933A93FC90D17532C1B5D6C" />
+      <ComponentRef Id="cmpA5201B26977AF6F6FB3EA45EA5127783" />
+      <ComponentRef Id="cmp89C1F97D1619B0BF8CD20EADEAA6B196" />
+      <ComponentRef Id="cmpD8DE3CFED1D61E9DDACE3C7E5EF8A50B" />
+      <ComponentRef Id="cmp00B03D5FB253EDFFE0FA679C2BB94A06" />
+      <ComponentRef Id="cmpB5EE13A6F851D96086C5D0A35AF6ED6E" />
+      <ComponentRef Id="cmpB066AC62530CE967F25B3510FC4DEE65" />
+      <ComponentRef Id="cmpED6A0794913167B621E387A4DE9C2979" />
+      <ComponentRef Id="cmpD39F57FA27CC81F3DE6C861961BFAB91" />
+      <ComponentRef Id="cmpF93AF2D7754E639D9A886F2B6B31E66C" />
+      <ComponentRef Id="cmpBD63ECA9B8916B97A8151C6AEF1EAC66" />
+      <ComponentRef Id="cmpF131A564431419596580B973FAEE79A5" />
+      <ComponentRef Id="cmpBF68BB8E7EA6A428717431859F233C07" />
+      <ComponentRef Id="cmpD69655006D46ACEBB3FFABBDE8F7ADBA" />
+      <ComponentRef Id="cmp55C7421B37244BC996EE56F2DE5950CA" />
+      <ComponentRef Id="cmp2AE766ED46D8DFFD392357F2E0FBE955" />
+      <ComponentRef Id="cmpC7B70EDE9C80846742544C587A861A8C" />
+      <ComponentRef Id="cmp8238E37DEE346D030B1394CBB59DD1D1" />
+      <ComponentRef Id="cmp05F4E36AA553326DE021FAAB9F3DAAB1" />
+      <ComponentRef Id="cmp4846EC7D5DDC389D3F089EE2DBD526C8" />
+      <ComponentRef Id="cmpA2AE1B1A41EAEA41B33DA0DEAF5FDEF5" />
+      <ComponentRef Id="cmpE9A1FC2C38C1F42C1074D7BDF995D21C" />
+      <ComponentRef Id="cmp24CFE22274C99DF2DAF93D1D1E08EC26" />
+      <ComponentRef Id="cmp7367B7670979E45592AFE4A396CAD7D3" />
+      <ComponentRef Id="cmp001748BE6F20806AAE7D164AF8BA59A0" />
+      <ComponentRef Id="cmp77CD30C36E55297F1B1648E0823B09D3" />
+      <ComponentRef Id="cmp4E2D020F0E927B89F837060F817F89BB" />
+      <ComponentRef Id="cmpEB88AB5BA2B3FDCEF813BDEC5D7CC3B6" />
+      <ComponentRef Id="cmpBCDF4A6F44BDE79F444F2E556DCAAE14" />
+      <ComponentRef Id="cmp76ED3D2871DAFB3335EA64EB9EF08BA2" />
+      <ComponentRef Id="cmpB386A2DD586240DBFF67A52A86AFE5AD" />
+      <ComponentRef Id="cmp8B4F6E3C751A5FF18956AB5DEA3C67BB" />
+      <ComponentRef Id="cmp644DBE55AD8949ACFE0F8E92A95B6740" />
+      <ComponentRef Id="cmpD0D50BF8A84BA49D6A9D4DDF5A2038E3" />
+      <ComponentRef Id="cmpC8C22B15E983C29763FD2D1AD45AE118" />
+      <ComponentRef Id="cmp84E32C402599D708533FD012944939EE" />
+      <ComponentRef Id="cmp21AB0E42203CE5D5E4E64468DCCDF274" />
+      <ComponentRef Id="cmpB57E5A38BFDBC52CC7138CE1A2726B0D" />
+      <ComponentRef Id="cmpB4E8A5243388F5EA4B01F427C5B719CC" />
+      <ComponentRef Id="cmp29F4843B4C73BB1D35C1896723E907D8" />
+      <ComponentRef Id="cmp81D3329FB0F9167C6BA852CF0E2DAA3A" />
+      <ComponentRef Id="cmp173EE708CCC7A8F32E0EE6B09FD55CC8" />
+      <ComponentRef Id="cmp4368DD490A9C4C06E7690E174D0F440E" />
+      <ComponentRef Id="cmp9D5DA70D860DAF39CA83F94161BB010E" />
+      <ComponentRef Id="cmp617A6C29AEBD2E7EAA87218A771E9439" />
+      <ComponentRef Id="cmpE168F121D444944E117A0820ECC2B841" />
+      <ComponentRef Id="cmp6BD9C7FAC9CD57BB7A13DFEF3C35D687" />
+      <ComponentRef Id="cmp89894698B0892740D9B5ACA0BDD36A02" />
+      <ComponentRef Id="cmpED7DA8065B9D9EDE19F5C8B76B5F8F32" />
+      <ComponentRef Id="cmp606A7B4799485568425B5767EEA0007A" />
+      <ComponentRef Id="cmp71A28B1E92CCD5D416250FF560FC7D41" />
+      <ComponentRef Id="cmp20853D1487EFF62CC4B7772B862333EF" />
+      <ComponentRef Id="cmpEE512413449D53B186DB961D945A8CA2" />
+      <ComponentRef Id="cmp419F160C2B816F8411CB68104D13B077" />
+      <ComponentRef Id="cmp8A8F58A527690C5F968ADF9BF52C7090" />
+      <ComponentRef Id="cmp3EB6DF03956CBFB064DD3375EA7CD885" />
+      <ComponentRef Id="cmp1DC093D4D360B3835D81A880B53B15AD" />
+      <ComponentRef Id="cmpC4B780AD2C8BBABA0D08ECFA2630DEFB" />
+      <ComponentRef Id="cmp623544F33F6E487113EA6D118611C8C8" />
+      <ComponentRef Id="cmpF8CDD1E6A7EF4B9BC1551C1E4455B300" />
+      <ComponentRef Id="cmp9E51F2E2EDC361724BC0E7E47F2E6E31" />
+      <ComponentRef Id="cmpAD09A10050A5BF0F6C9D173D5C565526" />
+      <ComponentRef Id="cmpCB9982F6F62BADBBB6F15C3161E3E4F4" />
+      <ComponentRef Id="cmpEE88F61474105A71626B9FB2F8449E5E" />
+      <ComponentRef Id="cmp8A5BC6565EE45FA31292956BF75B8DEB" />
+      <ComponentRef Id="cmp5F497C8EB793BB4B356953630F0905F9" />
+      <ComponentRef Id="cmpBBD35EFEDBA5713170574CBC6CFCD661" />
+      <ComponentRef Id="cmpD7B9E6E5AD29FA0B2345509C69C7AA9D" />
+      <ComponentRef Id="cmp1E11F3BBE23D6181525332331093569C" />
+      <ComponentRef Id="cmpCC0EE94E5670AACC2CB3A36D90898AE0" />
+      <ComponentRef Id="cmp28C6CC1DAF368C8CD9B4706684F534CE" />
+      <ComponentRef Id="cmpF8B11E4635E3A471A3B4D869C3F1E2E4" />
+      <ComponentRef Id="cmp88ECAC8BF1D0E7EE4AF940B2C0ECA094" />
+      <ComponentRef Id="libeay32.dll" />
+      <ComponentRef Id="pyuv.pyd" />
+      <ComponentRef Id="win32event.pyd" />
+      <ComponentRef Id="grid_template_option.hbs" />      
+    </ComponentGroup>
+  </Fragment>
+</Wix>

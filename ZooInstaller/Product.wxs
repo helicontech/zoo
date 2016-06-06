@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include defines.wxi ?>
+  <?include version.wxi ?>
+
+  <Product
+    Id                      ="*"
+    Name                    ="Helicon Zoo"
+    Language                ="1033"
+    Version                 ="$(var.ProductVersion)"
+    Manufacturer            ="Helicon Tech"
+    UpgradeCode             ="195427FC-215A-402B-BB56-84D0D09C3E16">
+
+    <Package 
+      InstallerVersion      ="300" 
+      Compressed            ="yes" 
+      InstallScope          ="perMachine"  />
+
+    <!--self-->
+    <Property
+      Id                    ="NEWERFOUND"
+      Secure                ="yes" />
+    <Property
+      Id                    ="UPGRADE_1"
+      Secure                ="yes" />
+
+    <Upgrade
+      Id                    ="195427FC-215A-402B-BB56-84D0D09C3E16" >
+      <!--newer-->
+      <UpgradeVersion
+        Language            ="1033"
+        OnlyDetect          ='yes'
+        Property            ='NEWERFOUND'
+        Minimum             ='$(var.ProductVersion)'
+        IncludeMinimum      ='no' />
+
+      <!--older-->
+      <UpgradeVersion
+         OnlyDetect         ='no'
+         Language           ="1033"
+         Minimum            ="1.0.0"
+         Maximum            ="$(var.ProductVersion)"
+         Property           ="UPGRADE_1"
+         IncludeMinimum     ="yes"
+         IncludeMaximum     ="no" />
+    </Upgrade>
+
+
+    <Media 
+      Id                    ="1" 
+      Cabinet               ="media1.cab" 
+      EmbedCab              ="yes" />
+
+    <Icon 
+      Id                    ="zoo.ico" 
+      SourceFile            ="img\zoo-4.ico"/>
+    <Property 
+      Id                    ="ARPPRODUCTICON" 
+      Value                 ="zoo.ico" />
+
+    <Feature 
+      Id                    ="ZoocmdFeature" 
+      Title                 ="Zoo command line" 
+      Level                 ="1">
+      <ComponentGroupRef 
+        Id                  ="ZoocmdComponents" />
+    </Feature>
+
+    <Feature 
+      Id                    ="ZoouiFeature" 
+      Title                 ="Zoo UI" 
+      Level                 ="1">
+      <ComponentGroupRef 
+        Id                  ="ZoouiComponents" />
+      <ComponentRef 
+        Id                  ="Shortcuts" />
+    </Feature>
+
+    <Feature 
+      Id                    ="VC10Redist_x86" 
+      Title                 ="Visual C++ 10.0 Runtime" 
+      AllowAdvertise        ="no" 
+      Display               ="hidden" 
+      Level                 ="1" >
+      <MergeRef 
+        Id                  ="VC10Redist_x86"/>
+    </Feature>
+
+    <Property 
+      Id                    ="INSTALLDIR">
+      <RegistrySearch 
+        Id                  ='InstallDirRegistry' 
+        Type                ='raw'
+        Root                ='HKLM' 
+        Key                 ='$(var.regisryZooInstallerPath)' 
+        Name                ='InstallDir' />
+    </Property>
+
+	
+    <!--WixUI_InstallDir does not allow the user to choose what features to install, 
+        but it adds a dialog to let the user choose a directory where the product will be installed.-->
+    <Property 
+      Id                    ="WIXUI_INSTALLDIR" 
+      Value                 ="INSTALLDIR" />
+    <!--InstallDirDlg A dialog that has a text box that allows the user to type in a non-default installation path 
+        and a Browse button that allows the user to select a non-default installation folder. 
+        By default, the InstallDirDlg dialog validates that any path the user enters is valid for Windows Installer: 
+        That is, it's a path on a local hard drive, not a network path or on a removable drive. 
+        If you wish to disable path validation and allow invalid paths, set the public property WIXUI_DONTVALIDATEPATH to 1.-->
+    <Property 
+      Id                    ="WIXUI_DONTVALIDATEPATH" 
+      Value                 ="1"/>
+    <!--UI\ExitDialog.wxs-->
+    <Binary 
+      Id                    ="dlgbmp_left_bmp" 
+      SourceFile            ="img\dlgbmp_left.bmp"/>
+    <!--WixUIExtension.dll includes a default, placeholder license agreement. 
+        To specify your product's license, override the default by specifying a WiX variable named WixUILicenseRtf 
+        with the value of an RTF file that contains your license text.-->
+    <WixVariable 
+      Id                    ="WixUILicenseRtf" 
+      Value                 ="Eula\license.rtf" />
+    <!--WixUIBannerBmp Top banner 493 × 58-->
+    <WixVariable 
+      Id                    ="WixUIBannerBmp" 
+      Value                 ="img\bannrbmp.bmp" />
+    <!--WixUIDialogBmp Background bitmap used on the welcome and completion dialogs 493 × 312-->
+    <WixVariable 
+      Id                    ="WixUIDialogBmp" 
+      Value                 ="img\dlgbmp.bmp" />
+    <!--UI\Common.wxs-->
+    <WixVariable 
+      Id                    ="WixUIErrorBmp" 
+      Value                 ="img\errorbmp.bmp" />
+    
+    <CustomAction 
+      Id                    ='SetRootDrive' 
+      Property              ='ROOTDRIVE' 
+      Value                 ='[WindowsVolume]'/>
+
+
+    <CustomAction 
+      Id                    ="Cleanup_Cmd"    
+      Property              ="Cleanup" 
+      Value                 ="&quot;cmd.exe&quot; /c rmdir /s /q &quot;[ZooInstallerDir]&quot;" 
+      Execute               ="immediate" />
+    <CustomAction 
+      Id                    ="Cleanup"        
+      BinaryKey             ="WixCA" 
+      DllEntry              ="CAQuietExec" 
+      Execute               ="deferred"
+      Return                ="ignore"
+      Impersonate           ="no" />
+
+    <CustomAction
+      Id                    ='NoDowngrade'
+      Error                 ='A later version of [ProductName] is already installed.' />
+
+    <InstallExecuteSequence>
+      <Custom
+        Action              ="SetRootDrive"
+        Before              ="CostInitialize">        
+      </Custom>
+
+      <RemoveExistingProducts
+        Before              ="InstallInitialize" />
+
+      <Custom
+        Action              ='NoDowngrade'
+        After               ='FindRelatedProducts'>
+                              NEWERFOUND
+      </Custom>
+
+      <!--Install-->
+
+      <!--UnInstall-->
+      <Custom
+        Action              ="Cleanup_Cmd"
+        After               ="CostFinalize">
+                              Installed AND NOT REINSTALL
+      </Custom>
+      <Custom
+        Action              ="Cleanup"
+        After               ="RemoveFiles">
+                              Installed AND NOT REINSTALL
+      </Custom>
+    </InstallExecuteSequence>
+
+    <InstallUISequence>
+      <Custom
+        Action              ="SetRootDrive" 
+        Before              ="CostInitialize">        
+      </Custom>
+    </InstallUISequence>
+
+    <!--Step 2: Add UI to your installer-->
+    <!--The WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT property is provided by the standard UI sequence that, 
+        when set, displays the checkbox and uses the specified value as the checkbox label.-->
+    <Property
+      Id                    ="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT"
+      Value                 ="Launch Helicon Zoo" />
+
+    <!-- Step 3: Include the custom action -->
+    <Property
+      Id                    ="WixShellExecTarget"
+      Value                 ="[ZooInstallerDir]Zoo.exe" />
+    <CustomAction
+      Id                    ="LaunchApplication"
+      BinaryKey             ="WixCA"
+      DllEntry              ="WixShellExec" 
+      Impersonate           ="yes" />
+
+    <!--Step 4: Trigger the custom action-->
+    <UI>
+      <UIRef 
+        Id                  ="WixUI_InstallDir" />
+      <UIRef
+        Id                  ="WixUI_ErrorProgressText" />
+
+      <Publish
+        Dialog              ="ExitDialog"
+        Control             ="Finish"
+        Event               ="DoAction"
+        Value               ="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed
+      </Publish>
+    </UI>
+  </Product>
+
+  <Fragment>
+    <Directory 
+      Id                    ="TARGETDIR"
+      Name                  ="SourceDir"
+      ComponentGuidGenerationSeed="d50fd4d5-330c-4372-8031-24549b71c7ec">
+
+      <Merge
+        Id                  ="VC10Redist_x86"
+        SourceFile          ="MergeModules\Microsoft_VC100_CRT_x86.msm"
+        DiskId              ="1" 
+        Language            ="0"/>
+
+      <Directory
+        Id                  ="INSTALLDIR"
+        Name                ="Zoo">
+        <Directory
+          Id                ="ZooInstallerDir"
+          Name              ="HeliconZoo">          
+        </Directory>
+      </Directory>
+
+      <Directory
+        Id                  ="ProgramMenuFolder">
+        <Directory
+          Id                ="HeliconMenu" 
+          Name              ="Helicon">
+          <Directory 
+            Id              ="ZooMenu"
+            Name            ="Zoo" >
+            <Component 
+              Id            ="Shortcuts"
+              Guid          ="40CA7F10-19F4-48E4-82C3-83AE0C9C9CD9" 
+              Win64         ="no">
+
+              <RegistryValue
+                Root        ="HKCU" 
+                Key         ="$(var.regisryZooInstallerPath)"
+                Name        ="installed" 
+                Type        ="integer" 
+                Value       ="1" 
+                KeyPath     ="yes"/>
+
+              <RemoveFolder
+                Id          ="HeliconMenu" 
+                Directory   ="HeliconMenu" 
+                On          ="uninstall"/>
+              <RemoveFolder 
+                Id          ="ZooMenu" 
+                Directory   ="ZooMenu"  
+                On          ="uninstall"/>
+
+              <Shortcut 
+                Id          ="Helicon.ZooInstaller.UI.exe.Shortcut"
+                Name        ="Helicon Zoo"
+                Description ="Helicon Zoo"
+                Target      ="[ZooInstallerDir]Zoo.exe"
+                WorkingDirectory="ZooInstallerDir" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup
+      Id                    ="ZoocmdComponents"
+      Directory             ="INSTALLDIR">
+
+      <ComponentGroupRef 
+        Id                  ="ZoocmdFilesGroup"/>
+      
+      <Component
+        Id                  ="RegistryEntries"
+        Guid                ="E557E85D-151C-41DB-A397-E726ADC5233C">
+        <RegistryKey
+          Root              ="HKLM"
+          Key               ="$(var.regisryZooInstallerPath)">
+          <RegistryValue 
+            Type            ="string" 
+            Name            ="Version" 
+            Value           ="$(var.ProductVersion)"/>
+          <RegistryValue
+            Type            ="string" 
+            Name            ="InstallDir" 
+            Value           ="[INSTALLDIR]"
+            KeyPath         ="yes"/>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup
+      Id                    ="ZoouiComponents"
+      Directory             ="INSTALLDIR">
+
+      <ComponentGroupRef 
+        Id                  ="ZoouiFilesGroup"/>
+   
+    </ComponentGroup>
+  </Fragment>
+</Wix>

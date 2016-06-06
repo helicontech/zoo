@@ -1,0 +1,25 @@
+
+
+     {{#each engines}}
+              <div onclick='Server.set_selected_engine("{{name}}")' class='engine-dropdown-item'>
+                  <div style="float: right">
+                        <span class="product-meta text-muted col100">
+                            {{#if installed_version}}
+                                  <span class="product-status-installed"><i class="fa fa-check "></i></span>
+                            {{ else }}
+                              <a href="/install/?products={{name}}" class="fa fa-download""></a>
+                            {{/if}}
+                         </span>
+                  </div>
+                  <div style="overflow: hidden">
+                        {{#if icon}}
+                            <img class="product-icon" src="/product/{{name}}/icon/?version={{version}}" />
+                        {{else}}
+                            <span class="product-icon"><i class="fa fa-cube"></i></span>
+                        {{/if}}
+                        <span class="product-title">{{title}}</span>
+                  </div>
+              </div>
+     {{/each}}
+
+

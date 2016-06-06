@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>                     
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define bannerBmp      ="Bitmaps\bannrbmp.bmp" ?>
+  <?define dialogBmp      ="Bitmaps\dlgbmp.bmp" ?>
+  <?define exclamationIco ="Bitmaps\exclamic.ico" ?>
+  <?define infoIco        ="Bitmaps\info.ico" ?>
+  <?define newIco         ="Bitmaps\new.ico" ?>
+  <?define upIco          ="Bitmaps\up.ico" ?>
+  <?define licenseRtf     ="Eula\license.rtf" ?>
+  <?define regisryZooInstallerPath  = "Software\Helicon\Zoo"?>
+
+  <?ifdef $(env.ZoocmdFiles)?>
+    <?define ZoocmdFilesDir=$(env.ZoocmdFiles)?>
+  <?else?>
+    <?define ZoocmdFilesDir="$(var.ProjectDir)..\Zoocmd\build\exe.win32-3.4"?>
+  <?endif?>
+
+  <?ifdef $(env.ZoouiFiles)?>
+    <?define ZouiFilesDir=$(env.ZoouiFiles)?>
+  <?else?>
+    <?define ZoouiFilesDir="$(var.ProjectDir)..\QtWinUI\Qt5.3\release"?>
+  <?endif?>
+
+</Include>                                                 

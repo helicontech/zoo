@@ -1,0 +1,46 @@
+<div class="install-item install clearfix {{#if last_version}}installed{{/if}}" data-product="{{product.name}}" data-client-id="{{client_id}}">
+  <div class="install-item-content clearfix">
+    <div class="install-item-header clearfix" data-client-id="{{client_id}}">
+      {{#if product.icon}}
+        <img class="install-item-icon" src="/product/{{product.name}}/icon/" />
+      {{else}}
+        <span class="install-item-icon"><i class="fa fa-cube"></i></span>
+      {{/if}}
+      <div class="install-item-title clearfix">
+        <h3 class="title">{{product.title}}</h3>
+        <span class="product-version">{{product.version}}</span>
+        {{#if last_version}}
+          <span class="label label-default"><i class="fa fa-check"></i> installed: {{product.installed_version}}</span>
+        {{/if}}
+      </div>
+    </div>
+    {{#if or_option}}
+    <div class="dropdown">
+      <button class="btn btn-default install-item-select-caret dropdown-toggle" id="select-menu-{{client_id}}" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu install-select-menu" role="menu" aria-labelledby="select-menu-{{client_id}}">
+      </ul>
+    </div>
+    {{/if}}
+    {{!--
+    <p>
+      <span class="text-muted">Author</span>: {{author}} &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+      <a href="{{link}}" target="_blank">Website</a> &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+      <span class="text-muted"><a href="{{eula}}" target="_blank">License</a></span>
+    </p>
+    {{#if files}}
+      <h5>Direct download links:</h5>
+      <ul class="files">
+        {{#each files}}
+        <li><a href="{{file}}" target="_blank">{{strip_link file}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+    --}}
+  </div>
+  {{#if or_option}}
+  {{/if}}
+
+  <div class="install-dependencies clearfix"></div>
+</div>

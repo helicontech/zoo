@@ -1,0 +1,99 @@
+{% extends 'base_master.html' %}
+
+{% block title %}Upgrade{% endblock %}
+
+{% block tabs %}
+
+
+
+<ul class="nav nav-pills wizard" id="upgrade-pills">
+      <a class="disabled first active " id="first_tab">&nbsp;</a>
+       <a  id="tab-pill-list"
+          class="active disabled"
+           >Product List</a>
+
+      <a  id="tab-pill-upgrading"
+          class="disabled pending"
+          ><i class="fa fa-cog fa-spin"  id="icon-spin-tab"
+                                  style="margin-right: 10px;
+                                  font-size: 18px;">
+
+                               </i><span id="status-tab">Pending</span></a>
+
+</ul>
+
+<br/>
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="tab-content">
+
+  <div class="tab-pane active" id="tab-product-list">
+    <div id="upgrade-list"></div>
+
+  </div>
+
+  <div class="modal fade" id="auto-upgrade-warning">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">
+            <i class="fa fa-bell"></i>
+            Helicon Zoo auto upgrade
+          </h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            Helicon Zoo will be updated in the next moment.
+            After download of the new version this window will automatically close.
+            Upon successful update Helicon Zoo will start itself. Please, be patient.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary ok">Ok</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+  <div class="tab-pane " id="tab-product-upgrading">
+      <div style="position: relative">
+        <textarea id="clipboard-area" style="position: absolute; top: -10000; left: -10000;">
+
+        </textarea>
+      </div>
+      <div id="task-log-placeholder" >
+        <button id="copy-log" type="button" class="btn btn-default btn-sm"><i class="fa fa-copy"></i> Copy</button>
+        <a href="{{ url('server') }}" id="go-to-node" type="button" class="btn btn-success hidden"><i class="fa fa-globe"></i> Go to site</a>
+        <div id="task-log" class="task-log-flat product-list-qt">
+            <pre>
+
+            </pre>
+        </div>
+      </div>
+
+  </div>
+
+
+</div>
+
+{{ handlebarsjs('product-upgrade-template') }}
+{{ handlebarsjs('task-template') }}
+{{ handlebarsjs('task-log-template') }}
+
+{% endblock %}
+
+
+
+{% block page_scripts %}
+<script src="{{ static('math.uuid/math.uuid.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/dependency-tree.js') }}"></script>
+<script src="{{ static('zoo/task.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/upgrade2.js') }}"></script>
+{% endblock %}

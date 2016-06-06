@@ -1,0 +1,53 @@
+<div class="clearfix">
+  <div class="btn-group pull-right browse-links">
+    <button class="btn btn-default start-web-console" type="button" style="margin-left: 10px">
+      <i class="fa fa-terminal"></i> Start web console
+    </button>
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+      Browse <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">link</a></li>
+    </ul>
+  </div>
+
+  <h4>Parent Application @ <a href="#" class="node-link" data-path="{{node.parent.path}}">{{node.parent.path}}</a></h4>
+</div>
+
+<div class="app-section disabled">
+  <div class="clearfix">
+
+
+    {{#if node.parent.config.application.icon}}
+      <img class="product-icon" src="/product/{{node.parent.config.application.name}}/icon/"/>
+    {{else}}
+      <span class="product-icon"><i class="fa fa-cube"></i></span>
+    {{/if}}
+
+    <h3 class="product-title">
+      {{node.parent.config.application.title}}
+      {{#ifeq node.parent.config.state "disabled"}}(Disabled){{/ifeq}}
+    </h3>
+  </div>
+
+  <p class="product-description">
+    {{node.parent.config.application.description}}
+  </p>
+
+  <p class="product-meta text-muted">
+    Version: <span class="product-version">{{node.parent.config.application.version}}</span>
+    &middot;
+    {{node.parent.config.application.author}}
+    &middot;
+    <a href="{{node.parent.config.application.link}}">website</a>
+    &middot;
+    <a href="{{node.parent.config.application.eula}}">license</a>
+  </p>
+
+</div>
+
+<div>
+  <hr/>
+  <a href="/gallery/?filter=application" class="btn btn-default install-app"><i class="fa fa-plus-circle"></i> Install Zoo application here</a>
+</div>
+

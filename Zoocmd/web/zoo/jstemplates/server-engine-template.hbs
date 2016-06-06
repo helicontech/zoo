@@ -1,0 +1,51 @@
+<div id="selected-engine"
+    class='product-item'
+     data-product="{{name}}"
+     data-product-type="{{product_type}}" >
+     <div class="product-meta text-muted pull-right" id='btn-engine-properties'
+          style="padding-top: 12px; padding-right: 80px;" >
+             {{#if installed_version}}
+                    <a href="#"   class="btn-engine-properties fa fa-gear"></a>
+             {{else}}
+                    <i class="fa fa-ban"></i>
+             {{/if}}
+     </div>
+      <div class="dropdown" style="width: 500px;">
+            <div class='btn btn-default'
+                 class="dropdown-toggle pointer product-meta"
+                 id="select-menu-server-app" data-toggle="dropdown"
+                >
+                    <div style="float:right">
+                    <span class="product-meta text-muted col100" >
+                        {{#if installed_version}}
+                              <span class="product-status-installed"><i class="fa fa-check"></i></span>
+                              <span class="product-version product-status-installed">{{installed_version}}</span>
+                        {{ else }}
+                            <a href="/install/?products={{name}}" class="fa fa-download""></a>
+                        {{/if}}
+
+                    </span>
+                    <span class="pull-right fa fa-chevron-down"></span>
+                    </div>
+                    <div style="overflow: hidden">
+                    {{#if icon}}
+                        <img class="product-icon" src="/product/{{name}}/icon/?version={{version}}" />
+                    {{else}}
+                        <span class="product-icon"><i class="fa fa-cube"></i></span>
+                    {{/if}}
+                    <span class="product-title">{{title}}</span>
+                    </div>
+        </div>
+
+        <div id="engine-dropdown-placeholder"
+             class="dropdown-menu"
+             role="menu"
+             aria-labelledby="select-menu-server-app">
+        </div>
+    </div>
+    <div class="product-item" >
+             <p class="product-description">
+                  {{description}}
+             </p>
+    </div>
+</div>

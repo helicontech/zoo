@@ -1,0 +1,66 @@
+<tr class="product-item" data-product="{{name}}" data-product-type="{{product_type}}">
+  <td class="product-header">
+    <div class="clearfix"><nobr>
+    {{#if icon}}
+      <img class="product-icon" src="/product/{{name}}/icon/?version={{version}}" />
+    {{else}}
+      <span class="product-icon"><i class="fa fa-cube"></i></span>
+    {{/if}}
+    <h3 class="product-title">{{title}}</h3>
+    </nobr></div>
+
+    <p class="product-description">
+      {{description}}
+    </p>
+    <p class="product-meta text-muted">
+      Version: <span class="product-version">{{version}}</span>
+      &middot;
+      {{author}}
+      &middot;
+      <a href="{{link}}" target="_blank">website</a>
+      &middot;
+      <a href="{{eula}}" target="_blank">license</a>
+      {{#if engine_list}}
+        {{#if installed_version}}
+        &middot;
+        <a href="#" class="btn btn-default btn-sm btn-engine-properties">Properties</a>
+        {{/if}}
+      {{/if}}
+    </p>
+  </td>
+  <td class="product-install">
+    {{#if installed_version}}
+
+        <button class="btn btn-default product-btn-uninstall pull-right"><i class="fa fa-times"></i> uninstall</button>
+        <div class="product-status-installed"><i class="fa fa-check"></i> installed</div>
+        <div class="product-version product-status-installed">{{installed_version}}</div>
+
+      {{#if has_upgrade}}
+        <p class="product-upgrade">
+          {{#if is_upgradable}}
+            <a href="/upgrade/?products={{name}}" class="btn btn-default">
+              <i class="fa fa-refresh"></i> upgrade to {{version}}
+            </a>
+          {{else}}
+            <span class="product-status-installed"><i class="fa fa-refresh"></i> new version available</span>
+            <br/>
+            <span class="product-version product-status-installed">{{version}}</span>
+          {{/if}}
+        </p>
+      {{/if}}
+
+
+    {{else}}
+      <button class="product-btn-install btn btn-success pull-right"><i class="fa fa-download"></i> install</button>
+    {{/if}}
+  </td>
+  <td class="product-checkbox">
+    {{#unless application}}
+    {{#if installed_version}}
+         <input type="checkbox" class="checkbox-uninstall" />
+    {{else}}
+      <input type="checkbox" class="checkbox-install" />
+    {{/if}}
+    {{/unless}}
+  </td>
+</tr>

@@ -1,0 +1,16 @@
+{% extends 'base_without_header.html' %}
+{% block content %}
+
+<div id="filters" class="row">
+<input type="hidden" id="core_state" value="{{state}}">
+<input type="hidden" id="core_message" value="{{message}}">
+<input type="hidden" id="core_errors" value="{{errors}}">
+</div>
+
+{% endblock %}
+
+
+
+{% block page_scripts %}
+<script src="{{ static('zoo/wait_core.js') }}"></script>
+{% endblock %}

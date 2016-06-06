@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Zoo{% endblock %}
+
+{% block content %}
+
+<div class="page-header" style="border: 0;">
+  <h1 class="text-center">
+    <i class="fa fa-cog fa-spin text-muted"></i>
+    Starting sync task. Please wait.
+  </h1>
+</div>
+
+
+{% endblock %}
+
+
+{% block page_scripts %}
+  <script src="{{ static('zoo/sync.js') }}"></script>
+{% endblock %}

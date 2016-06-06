@@ -1,0 +1,65 @@
+html, body {
+  font-family: Consolas, "Courier New", monospace;
+  color: #eee;
+  background-color: #111;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 10px;
+  min-height: 100%;
+}
+pre {
+  font-family: Consolas, "Courier New", monospace;
+  margin: 5px 0;
+  word-break: break-all;
+  white-space: pre-wrap;
+  color: #fff;
+}
+pre:focus {
+  border: none;
+  outline: none;
+}
+pre>span.welcome {
+    color: rgb(130, 194, 32);
+    white-space: pre;
+}
+pre a,
+pre a:visited
+{
+    color: rgb(41, 192, 192);
+}
+.stderr {
+  color: #f44;
+}
+#command {
+  font-family: Consolas, "Courier New", monospace;
+  color: #eee;
+  background-color: #111;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+#cancel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+#errmsg {
+  font-family: Consolas, "Courier New", monospace;
+  color: red;
+}
+#disconnected {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 540px;
+  margin-left: -270px;
+  background-color: gold;
+  padding: 10px;
+  color: #111;
+  text-align: center;
+}

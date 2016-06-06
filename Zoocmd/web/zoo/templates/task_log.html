@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Task Log {{ task.title }}{% endblock %}
+
+
+{% block content %}
+<a href="../" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> back to task</a>
+<h2 style="margin-top: 0">
+  <span class="text-muted">#{{task.id}}</span>
+  {{task.title}}
+  — Log
+  <span class="status label" data-status="{{ task.status }}">
+    {{task.status}}
+  </span>
+</h2>
+
+<div style="position: relative">
+  <textarea id="clipboard-area" style="position: absolute; top: -10000; left: -10000;"></textarea>
+</div>
+<div id="task-log-placeholder">
+  <button id="copy-log" type="button" class="btn btn-default btn-sm"><i class="fa fa-copy"></i> Copy</button>
+  <div id="task-log">
+    <pre>
+      {% for log in logs %}
+           <div class="log-record">
+            <span class="log-created">{{log.created|date:'Y-m-d H:i:s.u'}}</span>
+            <span class="log-level  log-level-{{log.level}}">{{log.level|stringformat:'-7s'}}</span>
+            <span class="log-source">{{log.source}}:</span>
+            <span class="log-message">{{log.message}}</span>
+          </div>
+      {% endfor %}
+   </pre>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block page_scripts %}
+<script>window.task_id={{ task.id }};</script>
+<script src="{{ static('zoo/task-log.js') }}"></script>
+
+
+{% endblock %}

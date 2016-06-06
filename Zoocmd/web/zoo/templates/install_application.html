@@ -1,0 +1,224 @@
+{% extends 'base_master.html' %}
+{% block title %}Install wizard{% endblock %}
+
+
+{% block tabs %}
+<div id="install_tabcontrol" style="width:1024px;overflow-x: hidden;">
+
+
+    <ul class="nav nav-pills wizard" id="install-pills" style="width: 3000px; margin-left: 0px;">
+      <a class="disabled first  " id="first_tab">&nbsp;</a>
+      <a class="disabled active" id="tab-pill-list"      >Prerequisites</a>
+      <a class="disabled" id="tab-pill-product-parameters" style="display:none" >Product parameters</a>
+      <a class="disabled" id="tab-pill-product-licenses"   style="display:none"  >Licenses</a>
+      <a class="disabled" id="tab-pill-product-installing" style="display:none"  ><i class="fa fa-cog fa-spin"
+                                                                                   id="icon-spin-tab"
+                                                                                   style="margin-right: 10px;
+                                                                                   font-size: 18px;">
+                                                                                   </i>
+                                                                                <span id="product-status-tab">pending
+                                                                                    </span>
+
+                                                                                    </a>
+
+      <a class="disabled" id="tab-pill-appl-website"    style="display:none" >Web Site</a>
+      <a class="disabled" id="tab-pill-appl-settings"   style="display:none" >Application settings</a>
+      <a class="disabled" id="tab-pill-appl-database"   style="display:none" >Database settings</a>
+      <a class="disabled" id="tab-pill-appl-installing" style="display:none"  ><i class="fa fa-cog fa-spin"
+                                                                                   id="appl-spin-tab"
+                                                                                   style="margin-right: 10px;
+                                                                                          font-size: 18px;">
+                                                                                </i><span id="appl-status-tab">Pending</span></a>
+
+
+    </ul>
+
+</div>
+
+
+{% endblock %}
+{% block content %}
+
+
+
+
+
+<!--
+<pre><code id="response-log">
+</code></pre>
+-->
+<br/>
+
+<div class="tab-content">
+
+
+  <div class="tab-pane active" id="tab-list">
+
+    <div class="product-list-qt list-group">
+         <ul id="install-list-products" > </ul>
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <div class="tab-pane" id="tab-product-parameters">
+    <div  class="product-list-qt list-group">
+
+      <ul id="product-parameters-list" ></ul>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="tab-pane" id="tab-product-licenses">
+    <div  class="list-group product-list-qt">
+       <ul id="product-licenses-list"  ></ul>
+        <p style="margin-left:3em;"
+           id="product-desc">
+          By clicking "I Accept", you agree to the license terms for the software above.
+          If you do not agree to all of the license terms, click "I Decline".
+        </p>
+    </div>
+
+  </div>
+
+
+<div class="tab-pane" id="tab-product-installing">
+     <div id="task-placeholder" style="display: none;" ></div>
+
+
+  <div style="position: relative">
+        <textarea id="clipboard-area" style="position: absolute; top: -10000; left: -10000;"></textarea>
+  </div>
+
+  <div id="task-log-placeholder" >
+        <button id="copy-log" type="button" class="btn btn-default btn-sm"><i class="fa fa-copy"></i> Copy</button>
+        <a href="{{ url('server') }}"
+           id="go-to-node"
+           type="button"
+           class="btn btn-success hidden">
+           <i class="fa fa-globe"></i> Go to site</a>
+        <div id="task-log" class="task-log-flat product-list-qt"><pre></pre></div>
+      </div>
+
+  </div>
+
+
+
+
+  <div class="tab-pane" id="tab-application">
+    <div class="product-list-qt list-group">
+         <ul id="install-list-application" > </ul>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tab-website">
+    <div id="websites-placeholder" class="product-list-qt list-group" ></div>
+
+  </div>
+
+
+  <div class="tab-pane" id="tab-database">
+    <div id="database-placeholder" class="product-list-qt list-group">
+      <div class="form-group">
+        <label for="db-engine">Engine</label>
+        <select id="db-engine" class="form-control">
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="db-host">Host</label>
+        <input id="db-host" class="form-control" value="localhost" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="db-port">Port</label>
+        <input id="db-port" class="form-control" value="3306" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="db-username">Username</label>
+        <input id="db-username" class="form-control" value="" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="db-password">Password</label>
+        <input id="db-password" class="form-control" value="" type="password" />
+      </div>
+      <div class="form-group">
+        <label for="db-name">Database Name</label>
+        <input id="db-name" class="form-control" value="" type="text" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" id="db-check-connection">Check connection</button>
+        <span id="connection-status-wrapper" style="margin-left: 10px;">
+          <span id="connection-status-success" class="text-success hide-soft"><i class="fa fa-check"></i> Success</span>
+          <span id="connection-status-failed" class="text-danger hide-soft"><i class="fa fa-times"></i> Failed</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="tab-pane" id="tab-application-parameters">
+    <div id="application-parameters-list" class="list-group product-list-qt"></div>
+  </div>
+
+
+
+  <div class="tab-pane" id="tab-application-install">
+    <h3>Install request</h3>
+    <pre><code id="install-request-code"></code></pre>
+    <div class="alert alert-danger hide-soft" id="install-request-errors">
+      <h4><i class="fa fa-warning"></i> Please check parameters for the following products to start installation</h4>
+      <div class="placeholder">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-install-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+        <h4 class="modal-install-confirm-title" id="modal-confirm-title">All Tasks have been finished</h4>
+      </div>
+      <!--<div class="modal-install-confirm-body" id="modal-confirm-body">-->
+      <!--</div>-->
+      <div class="modal-footer">
+        <a
+           type="button"
+
+           class="btn btn-success" >OK</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ handlebarsjs('product-licenses-template') }}
+{{ handlebarsjs('product-install-template2') }}
+{{ handlebarsjs('parameters-template') }}
+{{ handlebarsjs('websites-template') }}
+{{ handlebarsjs('product-install-errors') }}
+{{ handlebarsjs('task-template') }}
+{{ handlebarsjs('task-log-template') }}
+
+
+{% endblock %}
+
+
+{% block page_scripts %}
+<script src="{{ static('math.uuid/math.uuid.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/websites.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/database.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/dependency-tree.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/task.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/install2.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/include_install2.js') }}" type="text/javascript"></script>
+
+{% endblock %}

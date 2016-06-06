@@ -1,0 +1,76 @@
+{% extends 'base_master.html' %}
+
+
+{% block title %}Uninstall{% endblock %}
+
+{% block tabs %}
+
+<ul class="nav nav-pills wizard" id="uninstall-pills">
+      <a class="disabled first active " id="first_tab">&nbsp;</a>
+       <a  id="tab-pill-list"
+          class="active disabled"
+           >Product List</a>
+
+      <a  id="tab-installing"
+          class="disabled"
+          style="display:none"><i class="fa fa-cog fa-spin"  id="icon-spin-tab"
+                                  style="margin-right: 10px;
+                                  font-size: 18px;">
+
+                               </i><span id="status-tab">Pending</span></a>
+
+</ul>
+
+<br/>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="tab-content">
+
+  <div class="tab-pane active" id="tab-list">
+
+    <div id="uninstall-list" class="list-group product-list-qt"></div>
+
+
+  </div>
+
+      <div class="tab-pane" id="tab-product-uninstalling">
+                     <div id="task-placeholder" style="display: none;"></div>
+
+
+                    <div style="position: relative">
+                      <textarea id="clipboard-area" style="position: absolute; top: -10000; left: -10000;"></textarea>
+                    </div>
+                    <div id="task-log-placeholder">
+                      <button id="copy-log" type="button" class="btn btn-default btn-sm"><i class="fa fa-copy"></i> Copy</button>
+                      <a href="{{ url('server') }}" id="go-to-node" type="button" class="btn btn-success hidden"><i class="fa fa-globe"></i> Go to site</a>
+                      <div id="task-log" class="task-log-flat product-list-qt"><pre></pre></div>
+                    </div>
+      </div>
+
+
+</div>
+
+
+
+{{ handlebarsjs('product-uninstall-template') }}
+{{ handlebarsjs('task-template') }}
+{{ handlebarsjs('task-log-template') }}
+
+{% endblock %}
+
+
+{% block page_scripts %}
+<script src="{{ static('math.uuid/math.uuid.js') }}" type="text/javascript"></script>
+
+<script src="{{ static('zoo/uninstall.js') }}"></script>
+<script src="{{ static('zoo/task.js') }}" type="text/javascript"></script>
+<script src="{{ static('zoo/include_uninstall.js') }}"></script>
+
+
+{% endblock %}

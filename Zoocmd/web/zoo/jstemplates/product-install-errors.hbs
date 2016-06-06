@@ -1,0 +1,8 @@
+<p>
+  <strong>{{product.name}}:</strong>
+  {{#each parameters}}
+    {{#if error}}
+      <span class="parameter-name">{{humanize_parameter_name name}}</span>
+    {{/if}}
+  {{/each}}
+</p>

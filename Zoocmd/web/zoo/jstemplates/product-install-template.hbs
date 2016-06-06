@@ -1,0 +1,26 @@
+<div class="list-group-item install-item" data-product="{{product.name}}">
+  {{#with product}}
+  {{#if icon}}
+    <img class="product-icon" src="/product/{{name}}/icon/" />
+  {{else}}
+    <span class="product-icon"><i class="fa fa-cube"></i></span>
+  {{/if}}
+  <div class="install-item-header clearfix">
+    <h3>{{title}}</h3>
+    <span class="product-version">{{version}}</span>
+  </div>
+  <p>
+    <span class="text-muted">Author</span>: {{author}} &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+    <a href="{{link}}" target="_blank">Website</a> &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+    <span class="text-muted"><a href="{{eula}}" target="_blank">License</a></span>
+  </p>
+  {{#if files}}
+    <h5>Direct download links:</h5>
+    <ul class="files">
+      {{#each files}}
+      <li><a href="{{file}}" target="_blank">{{strip_link file}}</a></li>
+      {{/each}}
+    </ul>
+  {{/if}}
+  {{/with}}
+</div>

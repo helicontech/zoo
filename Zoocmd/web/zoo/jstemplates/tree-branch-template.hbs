@@ -1,0 +1,13 @@
+{{#each nodes}}
+<li class="node" data-path="{{path}}" data-type="{{type}}">
+  <span class="expander">
+    <i class="fa fa-caret-right"></i>
+    <i class="fa fa-caret-down hide-soft"></i>
+  </span>
+  <span class="node-title">
+    <i class="fa fa-{{get_node_icon type}} icon">{{#if is_virtual}}<i class="fa fa-cog text-danger virtual"></i>{{/if}}</i>
+    <a href="#">{{name}}</a>
+  </span>
+  <ul class="children list-unstyled"></ul>
+</li>
+{{/each}}

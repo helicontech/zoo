@@ -1,0 +1,27 @@
+<table class="table table-striped editable_table" style="cursor:pointer">
+  {{#each params}}
+      <tr>
+      {{#if ../edit_keys}}
+        <td class='editable col1'>{{@key}}</td>
+      {{else}}
+        <td class='col1' >{{@key}}</td>
+      {{/if}}
+      <td  class='editable col2' >{{this}}</td>
+      {{#if ../edit_keys}}
+        <td   class='remove  button'><button class="btn btn-default">
+                                                <i class="fa fa-times text-danger remove"></i>
+                                                </button></td>
+      {{/if}}
+      </tr>
+  {{/each}}
+
+  {{#if can_add}}
+    <tr class='form_add'>
+        <td class='col1' ><input   class='form-control' type='text'></td>
+        <td  class='col2' ><input  class='form-control' type='text' ></td>
+        <td  class='button add'>
+        <button  class="btn btn-default"><i class="fa fa-plus text-default add"></i></button>
+        </td>
+    </tr>
+  {{/if}}
+</table>

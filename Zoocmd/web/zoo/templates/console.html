@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <title>Helicon Zoo Web Console</title>
+  <link rel="stylesheet" href="{{ static('css/console.css') }}">
+</head>
+<body>
+<pre id="output" tabindex="0">
+<span class="welcome">
+*************************************************************************************
+**                   Welcome to Helicon Zoo web console!                           **
+**                                                                                 **
+**     This console allows you to execute shell commands in the environment        **
+**     of your web application. It is recommended to use this console to run       **
+**     any commands to your application, like installing modules, configuring      **
+**     and migrating databases, etc. The environment of this console is            **
+**     configured for your application, like PATH and other variables point to     **
+**     versions of interpreter and engine configured by the application.           **
+**                                                                                 **
+**                                                                                 **
+**     More information: <a href="http://www.helicontech.com/zoo/docs/console.htm" target="_blank">http://www.helicontech.com/zoo/docs/console.htm</a>           **
+**                                                                                 **
+*************************************************************************************</span>
+</pre>
+<p id="errmsg" style="display: none">
+The command processor has been closed. Error code = <span id="errorcode"></span>.
+</p>
+<div>
+  <input  id="command" type="text" value="" />
+</div>
+<div id="cancel">
+  <button id="close"  type="button" value="Close">Kill</button>
+</div>
+
+
+
+<div id="disconnected">
+  Console disconnected now. Close the window or
+  <button type="button" id="connect">Connect</button>
+</div>
+
+<script src="{{ static('jquery/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ static('zoo/common.js') }}"></script>
+<script src="{{ static('zoo/api.js') }}"></script>
+<script src="{{ static('zoo/console_websocket.js') }}"></script>
+</body>
+</html>

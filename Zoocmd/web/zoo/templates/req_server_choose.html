@@ -1,0 +1,43 @@
+{% extends 'base_without_header.html' %}
+
+{% block content_class %}content-settings{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+
+    <div class="col-xs-9">
+      <h2>Choose the working server for Zoo</h2>
+
+
+      <form role="form" class="form-fit" id="settings">
+
+        <div class="form-group">
+          <label for="webserver">Target Web Server:</label>
+          <select class="form-control" id="webserver" name="webserver">
+            <option value="iis" selected>IIS</option>
+            <option value="iisexpress">IIS Express</option>
+          </select>
+        </div>
+        <div class="form-group">
+                <button type="button" class="btn btn-lg btn-success" id="save">Save</button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}
+
+
+{% block service_content %}
+{% endblock %}
+
+
+
+{% block page_scripts %}
+  <script src="{{ static('zoo/settings.js') }}"></script>
+{% endblock %}

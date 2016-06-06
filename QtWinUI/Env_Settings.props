@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <QT_PLATFORM_ROOT>$(ProjectDir)Qt5.3</QT_PLATFORM_ROOT>
+    <ZOO_INSTALLATION_ROOT>C:/MyProjects/helicon_zoo_v4/Zoo</ZOO_INSTALLATION_ROOT>
+    <BOOST_ROOT>C:\boost_1_54_0</BOOST_ROOT>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="QT_PLATFORM_ROOT">
+      <Value>$(QT_PLATFORM_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ZOO_INSTALLATION_ROOT">
+      <Value>$(ZOO_INSTALLATION_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BOOST_ROOT">
+      <Value>$(BOOST_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
