@@ -91,7 +91,6 @@ class Settings(object):
 
         # запомним оргинальный словарь с настройками
         self.source = OrderedDict(kwargs)
-        uname = platform.uname()
         # корень проекта
         self.root = Settings.ROOT_DIR
 
@@ -117,11 +116,11 @@ class Settings(object):
         self.urls = [kwargs.get('main_feed') or MAIN_FEED]
         self.urls.extend(kwargs.get('urls') or [])
         # ос, может задавать в настройках, но обычно нет
-        self.os = kwargs.get('os', uname.system.lower())
+        self.os = kwargs.get('os', platform.system().lower())
         # версия ос, может задавать в настройках, но обычно нет
-        self.os_version = kwargs.get('os_version', uname.version)
+        self.os_version = kwargs.get('os_version', platform.version())
         # битность, может задавать в настройках, но обычно нет
-        self.bitness = kwargs.get('bitness', '64' if uname.machine.find('64') > 0 else '32')
+        self.bitness = kwargs.get('bitness', '64' if platform.machine().find('64') > 0 else '32')
         # веб сервер
         self.webserver = kwargs.get('webserver', None)
         # язык

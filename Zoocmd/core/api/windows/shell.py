@@ -54,13 +54,14 @@ class WindowsShell(object):
 
         # This code is needed to start 64-bit version of cmd.exe on 64-bit os.
         # Not sure yet which version is correct
-        if platform.machine().endswith('64'):
+        if platform.machine().find('64') > 0 and not sys.maxsize > 2**32:
             executable = '{0}\Sysnative\cmd.exe /C "{1}"'.format(os.getenv('SystemRoot'), command)
         else:
             executable = '{0}\System32\cmd.exe /C "{1}"'.format(os.getenv('SystemRoot'), command)
 
+
         # exit_code = subprocess.check_call(executable, env=envs, stdout=sys.stdout, stderr=sys.stderr, shell=True)
-        process = subprocess.Popen(executable, env=envs, shell=True, stdout=sys.stdout, stderr=sys.stderr)
+        process = subprocess.Popen(executable, env=envs, stdout=sys.stdout, stderr=sys.stderr)
 
         # exit if do not need to wait process
         if no_wait:

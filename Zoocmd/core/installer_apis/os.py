@@ -32,7 +32,7 @@ class OsApi(object):
         command = self.core.expandvars(command, product=self.product)
         self.core.api.os.shell.cmd(command, ignore_exit_code=ignore_exit_code)
 
-    def delete_path(self, path):
+    def delete_path(self, path, ignore_errors=True):
         """
         Deletes path.
         """
@@ -42,7 +42,7 @@ class OsApi(object):
         :param path: file or folder
         """
         if os.path.isdir(path):
-            shutil.rmtree(path)
+            shutil.rmtree(path, ignore_errors=ignore_errors)
         elif os.path.isfile(path):
             os.remove(path)
 
