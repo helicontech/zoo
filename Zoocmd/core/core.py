@@ -269,7 +269,7 @@ class Core:
         """
         Обновляет переменную процесса PATH из реестра.
         """
-        os.environ['PATH'] = self.api.os.registry.get_system_path()
+        os.environ['PATH'] = self.envs.expandvars(self.api.os.registry.get_system_path())
 
     def set_expired(self, expired: bool):
         """

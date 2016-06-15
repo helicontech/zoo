@@ -8,6 +8,8 @@ import sys
 import subprocess
 import win32api
 import platform
+from core.core import Core
+
 # import shlex
 
 
@@ -59,6 +61,9 @@ class WindowsShell(object):
         else:
             executable = '{0}\System32\cmd.exe /C "{1}"'.format(os.getenv('SystemRoot'), command)
 
+        if not envs:
+            envs = os.environ
+            envs['PATH'] = Core.get_instance().expandvars(envs['PATH'])
 
         # exit_code = subprocess.check_call(executable, env=envs, stdout=sys.stdout, stderr=sys.stderr, shell=True)
         process = subprocess.Popen(executable, env=envs, stdout=sys.stdout, stderr=sys.stderr)
