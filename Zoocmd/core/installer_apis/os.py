@@ -30,7 +30,7 @@ class OsApi(object):
             command = self.core.expandvars(command, product=self.product)
         """
         command = self.core.expandvars(command, product=self.product)
-        self.core.api.os.shell.cmd(command, ignore_exit_code=ignore_exit_code)
+        return self.core.api.os.shell.cmd(command, ignore_exit_code=ignore_exit_code)
 
     def delete_path(self, path, ignore_errors=True):
         """

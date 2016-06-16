@@ -14,7 +14,7 @@ def pool_list(request):
     :return:
     """
     core = Core.get_instance()
-    if os.path.exists(core.api.os.web_server.APP_CMD):
+    if hasattr(core.api.os.web_server, 'APP_CMD') and os.path.exists(core.api.os.web_server.APP_CMD):
         pools = core.api.os.web_server.get_app_pool_list()
         return [pool.to_dict() for pool in pools]
     return []

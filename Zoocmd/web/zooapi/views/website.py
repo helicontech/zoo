@@ -143,10 +143,10 @@ def website_path(request, name, path):
 @json_response
 def check_webserver_installed(req):
     core = Core.get_instance()
-    server =  core.platform.web_server
-    if server == "iisexpress" or server == "iis":
-        if os.path.exists(core.api.os.web_server.APP_CMD):
-            return {"status": True, "server": server}
-        else:
-            return {"status": False, "server": server}
+    server = core.platform.web_server
+    if not isinstance(core.api.os.web_server, NoWebServer):
+        if server == "iisexpress" or server == "iis":
+            if os.path.exists(core.api.os.web_server.APP_CMD):
+                return {"status": True, "server": server}
+    return {"status": False, "server": server}
     #TODO make  implementation for other server

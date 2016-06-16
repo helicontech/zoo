@@ -55,7 +55,7 @@ class IIS(BaseWebServer):
         from core.api.windows.registry import Registry
         registry = Registry()
         major_version = registry.read("HKLM\\SOFTWARE\\Microsoft\\INETSTP", "MajorVersion")
-        minor_version = registry.read("HKLM\\SOFTWARE\\Microsoft\\INETSTP", "MinorVersion")
+        # minor_version = registry.read("HKLM\\SOFTWARE\\Microsoft\\INETSTP", "MinorVersion")
         return bool(major_version)
 
     def create_physical_path_for_virtual_path(self, name):
@@ -393,7 +393,7 @@ class IIS(BaseWebServer):
             default_app = self.get_default_app(site)
             bindings = self.get_site_bindings(site.ChildElements)
             applications = self.get_applications(site)
-            if default_app and not os.path.exists(default_app["physicalPath"]):
+            if default_app and not os.path.exists(self.core.expandvars(default_app["physicalPath"])):
                 # не показывать сайты для которых нет физ. директории для иис экспреса
                 continue
             site = Site(name, bindings, default_app, applications)
