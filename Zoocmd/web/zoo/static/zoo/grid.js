@@ -37,7 +37,7 @@ $(document).ready(function () {
     render_edit_keys_values: function(params){
       return this.template({params: params, edit_keys: true, can_add: true});
     },
-    // it seams to be work
+    // it seems to work
     get_params_opt: function($placeholder, key_field, value_field){
       var params;
       if(key_field && value_field){

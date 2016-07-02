@@ -14,7 +14,7 @@ $(document).ready(function () {
         this.engine_properties_template(engine)
       );
       var params = Common.clone_end_remove_keys(engine.config, ['enabled', 'environment_variables']);
-      this.$modal.find('#engine-parameters-grid').html(Grid.render_edit_values(params));
+      this.$modal.find('#engine-parameters-grid').html(Grid.render_edit_keys_values(params));
       Grid.connect_events("#engine-parameters-grid");
 
       this.$modal.find('#engine-environment').html(Grid.render_edit_keys_values(engine.config.environment_variables));
