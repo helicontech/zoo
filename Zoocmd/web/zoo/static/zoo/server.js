@@ -82,14 +82,12 @@ $(document).ready(function () {
            }
            var prev_selected_engine = Server.selected_engine;
            // changing engines for locations locations
-           $("#app-location table tr td.optioneditable").each(function(e, e1){
-                var prev_engine = $(e1).attr("data-value");
+           $("#app-location table tr td.col2").each(function(e, e1){
+                var prev_engine = $(e1).text();
                 if(prev_engine == prev_selected_engine){
-                      $(e1).attr("data-value", EngineName).text(title);
+                      $(e1).text(EngineName);
                 }
            });
-
-
 
            Server.selected_engine = EngineName;
            $("#engine").text( title );
@@ -160,23 +158,14 @@ $(document).ready(function () {
             select_vals.push({'value': pre_sel_vals[i].engine,
                               'title': title })
           }
-          $z.find('#app-location').html(Grid.render_edit_keys_options_values(application['locations'] || [],
-                                                                             'path' ,
-                                                                             'engine',
-                                                                             select_vals
-                                                                             ));
-          var format_selected =  function(e){
-              engine =  Gallery.get_engine(e);
-              if(engine){
-                  return engine.title;
-              }else{
-                  return "Disabled";
-              }
-
-          };
-          Grid.process_select_after_render(application['locations'], 'path', 'engine', format_selected );
-          Grid.connect_events("#app-location");
-          Grid.connect_events_option("#app-location");
+          var locations = application['locations'] || [];
+          var params = {};
+          for(i in locations){
+             params[locations[i]['path']] = locations[i]['engine'];
+          }
+          $z.find('#app-location').html(Grid.render_locations(params));
+          Grid.connect_events_locations("#app-location");
+          //Grid.connect_events_option("#app-location");
           if(!application.parameters)
                 application.parameters = {'selected-engine': pre_sel_vals[0].engine};
 
@@ -193,12 +182,16 @@ $(document).ready(function () {
       var $z = this.$zoo_app;
       Server.save_environment_variables(Server.selected_engine);
 
+      var location = [];
+      $.each(Grid.get_params($z.find('#app-location')),function (key, value) {
+           location.push({'path':key, 'engine':value});
+      });
       var config = {
             'selected-engine': Server.selected_engine,
             engines: Server.application.engines,
             path: $z.find('#path').val(),
             environment_variables: Grid.get_params($z.find('#app-environment')),
-            locations: Grid.get_params_opt($z.find('#app-location'),'path','engine'),
+            locations: location,
       };
 
       console.log('app config: ', config);

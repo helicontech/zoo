@@ -2,7 +2,7 @@ $(document).ready(function () {
   window.Grid = {
     remove_button: '<button class="btn btn-default"><i class="fa fa-times text-danger remove"></i></button>',
     template: Handlebars.compile($('#grid-template').html()),
-    template_options: Handlebars.compile($('#grid-template-option').html()),
+    template_locations: Handlebars.compile($('#grid-template-locations').html()),
 
     render_edit_values: function(params){
       return this.template({params: params, edit_keys: false, can_add: false});
@@ -36,6 +36,9 @@ $(document).ready(function () {
 
     render_edit_keys_values: function(params){
       return this.template({params: params, edit_keys: true, can_add: true});
+    },
+    render_locations: function(params){
+      return this.template_locations({params: params, edit_keys: true, can_add: true});
     },
     // it seems to work
     get_params_opt: function($placeholder, key_field, value_field){
@@ -112,7 +115,7 @@ $(document).ready(function () {
                         $(this).closest('tr').remove();
                     });
                     copy.removeClass("form_add");
-                    copy.insertBefore( selector  + " table tr.form_add" );
+                    copy.insertAfter( selector  + " table tr.form_add" );
                     $(selector + " tr.form_add td.col1>input").val("");
                     $(selector + " tr.form_add td.col2>select").val("");
             }
@@ -141,6 +144,34 @@ $(document).ready(function () {
                 });
                 copy.removeClass("form_add");
                 copy.insertBefore( selector  + " table tr.form_add" );
+                $(selector + " tr.form_add td.col1>input").val("");
+                $(selector + " tr.form_add td.col2>input").val("");
+        }
+
+      });
+
+
+    },
+
+    connect_events_locations: function(selector, add){
+      $(selector + " table").editableTableWidget();
+      $(selector).on('click', '.remove', function(e){
+        $(this).closest('tr').remove();
+      });
+
+      $(selector).on('click', '.add', function(e){
+        var val1 = $(selector+" tr.form_add td.col1>input").val();
+        var val2 = $(selector+" tr.form_add td.col2>input").val();
+        if(val1 && val2){
+                var copy = $(selector+" tr.form_add").clone();
+                copy.find("td.col1").addClass("editable").html(val1);
+                copy.find("td.col2").addClass("editable").html(val2);
+                copy.find("td.add").removeClass("add").html(Grid.remove_button);
+                copy.on('click', '.remove', function(e){
+                    $(this).closest('tr').remove();
+                });
+                copy.removeClass("form_add");
+                copy.insertAfter( selector  + " table tr.form_add" );
                 $(selector + " tr.form_add td.col1>input").val("");
                 $(selector + " tr.form_add td.col2>input").val("");
         }
