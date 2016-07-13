@@ -9,7 +9,6 @@ Zoocmd/data/
 src/local_feed.py
 ZooInstaller/obj/
 ZooInstaller/bin/Release/
-Python34/
 zoo.suo
 QtWinUI/QtWinUI.vcxproj.user
 QtWinUI/bak*/
@@ -19,7 +18,6 @@ ZooInstaller\Product.wixobj
 ZooInstaller\Product.wx
 ZooInstaller\Product.wx.xml
 ZooInstaller\candle.rsp
-*.bat
 Zoocmd/etc/settings.yaml
 zoo.opensdf
 zoo.sdf
