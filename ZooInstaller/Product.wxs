@@ -178,12 +178,12 @@
       <Custom
         Action              ="Cleanup_Cmd"
         After               ="CostFinalize">
-                              Installed AND NOT REINSTALL
+                            (NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")
       </Custom>
       <Custom
         Action              ="Cleanup"
         After               ="RemoveFiles">
-                              Installed AND NOT REINSTALL
+                            (NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")
       </Custom>
     </InstallExecuteSequence>
 

@@ -25,3 +25,5 @@ ZooInstaller/ZoouiFiles.wxs
 ZooInstaller/ZoocmdFiles.wxs
 ZooInstaller/ZooInstaller.suo
 Zoocmd/local_feed.py
+ZooInstaller/Packages/
+QtWinUI/Qt5.3/release/
