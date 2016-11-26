@@ -397,7 +397,8 @@ class IIS(BaseWebServer):
                 # не показывать сайты для которых нет физ. директории для иис экспреса
                 continue
             site = Site(name, bindings, default_app, applications)
-            result.append(site)
+            if hasattr(site, 'port') and site.port != 0:
+                result.append(site)
 
         return result
 
